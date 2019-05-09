@@ -6,37 +6,38 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <!DOCTYPE html>
 <html>
-<head>
-<title>Product Register</title>
-<link rel="stylesheet" href="../common/members.css" type="text/css"
-	media="screen" />
 
-<script src="../ckeditor/ckeditor.js"></script>
-<script>
-	window.onload = function() {
-		CKEDITOR.replace("prod_content", {
-			filebrowserUploadUrl : '../ckeditor/fileUpload.jsp',
-			customConfig : '../ckeditor/config.js'
-		});
-	}
-	function return_check() {
-		// document.getElementById("contents").value;
-		var data = CKEDITOR.instances.contents.getData();
-		//console(data);
-		if (data == '') {
-			alert("input editor..");
-			return false;
+<head>
+	<title>Product Register</title>
+	<link rel="stylesheet" href="../common/members.css" type="text/css" media="screen" />
+
+	<script src="../ckeditor/ckeditor.js"></script>
+	<script>
+		window.onload = function () {
+			CKEDITOR.replace("prod_content", {
+				filebrowserUploadUrl: '../ckeditor/fileUpload.jsp',
+				customConfig: '../ckeditor/config.js'
+			});
 		}
-		return true;
-	}
-	function file_open() {
-		window.open("upload.jsp", "upload", "width=300 height=200 left=300 top=30");
-	}
-</script>
+		function return_check() {
+			// document.getElementById("contents").value;
+			var data = CKEDITOR.instances.contents.getData();
+			//console(data);
+			if (data == '') {
+				alert("input editor..");
+				return false;
+			}
+			return true;
+		}
+		function file_open() {
+			window.open("upload.jsp", "upload", "width=300 height=200 left=300 top=30");
+		}
+	</script>
 </head>
 <sql:query var="rs" dataSource="jdbc/oracle_jsp">
-select category_id, category_name, category_desc from category
+	select category_id, category_name, category_desc from category
 </sql:query>
+
 <body>
 
 	<div class="container">
@@ -58,10 +59,11 @@ select category_id, category_name, category_desc from category
 				<!--  start page -->
 				<form name="frm1" action="GoodsServlet" method="get">
 					<input type="hidden" name="action" value="adminGoodsRegister">
-					<table border="1" width="700" cellpadding="2" cellspacing="1"
-						bgcolor=#777777>
+					<table border="1" width="700" cellpadding="2" cellspacing="1" bgcolor=#777777>
 						<tr>
-							<td height=20 align=center bgcolor=#999999><font color=white><B>상품등록</B></font></td>
+							<td height=20 align=center bgcolor=#999999>
+								<font color=white><B>상품등록</B></font>
+							</td>
 						</tr>
 						<!-- 입력 부분 -->
 						<tr>
@@ -74,8 +76,8 @@ select category_id, category_name, category_desc from category
 									</tr>
 									<tr>
 										<td align="center">상품이미지</td>
-										<td><input type="text" name="prod_image" /> <input
-											type="button" value="파일첨부" onclick="file_open()"><br></td>
+										<td><input type="text" name="prod_image" /> <input type="button" value="파일첨부"
+												onclick="file_open()"><br></td>
 									</tr>
 									<tr>
 										<td align="center">상품설명</td>
@@ -101,7 +103,7 @@ select category_id, category_name, category_desc from category
 													<option value="${gds.category_id}">
 														${gds.category_name}</option>
 												</c:forEach>
-										</select></td>
+											</select></td>
 									</tr>
 									<tr>
 										<td align="center">상품사용여부</td>
@@ -126,4 +128,5 @@ select category_id, category_name, category_desc from category
 	</div>
 
 </body>
+
 </html>

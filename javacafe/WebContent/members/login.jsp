@@ -3,12 +3,13 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>JSP Page</title>
-<link rel="stylesheet" href="../common/members.css" type="text/css"
-	media="screen" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Login Page</title>
+	<link rel="stylesheet" href="../common/members.css" type="text/css" media="screen" />
 </head>
+
 <body>
 
 	<div class="container">
@@ -43,8 +44,7 @@
 						</tr>
 					</table>
 				</form>
-				<input type="hidden" value="회원등록"
-					onclick="location.href='userRegister.jsp'">
+				<input type="hidden" value="회원등록" onclick="location.href='userRegister.jsp'">
 			</div>
 		</article>
 
@@ -54,5 +54,5 @@
 	</div>
 
 </body>
-</html>
 
+</html>
