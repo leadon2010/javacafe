@@ -3,11 +3,12 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>User Registration Form</title>
-<link rel="stylesheet" href="../common/members.css" type="text/css"
-	media="screen" />
+	<title>User Registration Form</title>
+	<link rel="stylesheet" href="../common/members.css" type="text/css" media="screen" />
 </head>
+
 <body>
 	<div class="container">
 		<!-- header page -->
@@ -70,4 +71,5 @@
 		<footer><%@ include file="../common/footer.jsp"%></footer>
 	</div>
 </body>
+
 </html>

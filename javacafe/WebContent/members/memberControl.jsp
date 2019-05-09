@@ -204,7 +204,7 @@
 			request.setAttribute("usrdo", usrlist);
 			pageContext.forward("userAll.jsp");
 
-		}  else if (action.equals("updateUserInfo")) {
+		} else if (action.equals("updateUserInfo")) {
 			System.out.println("action===" + action);
 			if (usrdao.update(usrdo)) {
 				response.sendRedirect("memberControl.jsp?action=home&user_no=" + usrdo.getUser_no());
@@ -213,8 +213,8 @@
 				out.println("<script>alert('회원정보변경에러')</script>");
 
 			}
-			
-		}  else if (action.equals("logout")) {
+
+		} else if (action.equals("logout")) {
 			//세션을 초기화 한다.
 			System.out.println("action===" + action);
 			session.invalidate();
