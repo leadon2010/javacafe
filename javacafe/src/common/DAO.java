@@ -19,7 +19,7 @@ public class DAO {
 	protected PreparedStatement pstmt;
 
 	public void connect() {
-		int choi = 1;
+		int choi = 2;
 		try {
 			if (choi == 1) {
 				// 1. jdbc driver
