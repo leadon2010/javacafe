@@ -2,11 +2,12 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>index page</title>
-<link rel="stylesheet" href="../common/members.css" type="text/css"
-	media="screen" />
+	<title>index page</title>
+	<link rel="stylesheet" href="../common/members.css" type="text/css" media="screen" />
 </head>
+
 <body>
 
 	<div class="container">
@@ -38,4 +39,5 @@
 	</div>
 
 </body>
+
 </html>

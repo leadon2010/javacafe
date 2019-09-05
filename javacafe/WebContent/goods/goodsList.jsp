@@ -85,7 +85,7 @@ ul.menu li {
 							src="../images/${goods.prod_image}" width="250" height="250"></span>
 						<span>${goods.prod_name} </span>
 						<!-- <span>${goods.prod_content}</span>    -->
-						
+
 						<!--     -->
 						<span>${goods.onhand_qty} </span>
 						<!--     -->

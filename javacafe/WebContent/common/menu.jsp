@@ -3,10 +3,10 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>java menu</title>
-<link rel="stylesheet" href="../common/members.css" type="text/css"
-	media="screen" />
+	<title>java menu</title>
+	<link rel="stylesheet" href="../common/members.css" type="text/css" media="screen" />
 </head>
 
 <body>
@@ -47,4 +47,5 @@
 		</c:if>
 	</ul>
 </body>
+
 </html>
