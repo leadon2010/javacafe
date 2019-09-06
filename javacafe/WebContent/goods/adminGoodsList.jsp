@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +13,7 @@
 <script src="//code.jquery.com/jquery.min.js"></script>
 
 <script>
-	$(function(){
+	$(function() {
 		$(document).tooltip();
 	});
 </script>
@@ -47,6 +48,11 @@ ul.menu li {
 }
 </style>
 </head>
+
+<sql:query var="rs" dataSource="jdbc/oracle">
+	select category_id, category_name, category_desc from category
+</sql:query>
+
 <body>
 	<div class="container">
 		<!-- header page -->
@@ -66,7 +72,12 @@ ul.menu li {
 					<ul class="menu">
 						<li><a href="../goods/GoodsServlet?action=adminGoodsList">전체</a>
 							&nbsp;&nbsp;&nbsp;</li>
-						<li><a
+						<c:forEach items="${rs.rows}" var="gds">
+							<li><a
+								href="../goods/GoodsServlet?action=adminGoodsList&prod_category=${gds.category_id}"
+								title="${gds.category_desc}"> ${gds.category_name}</a>
+								&nbsp;&nbsp;&nbsp;</li>
+							<%-- <li><a
 							href="../goods/GoodsServlet?action=adminGoodsList&prod_category=BEANS">원두</a>
 							&nbsp;&nbsp;&nbsp;</li>
 						<li><a
@@ -80,18 +91,16 @@ ul.menu li {
 							&nbsp;&nbsp;&nbsp;</li>
 						<li><a
 							href="../goods/GoodsServlet?action=adminGoodsList&prod_category=CUPS" title="고품격 폴란드 수입 찻잔">찻잔</a>
-							&nbsp;&nbsp;&nbsp;</li>
+							&nbsp;&nbsp;&nbsp;</li> --%>
+						</c:forEach>
 					</ul>
 				</div>
 				<c:forEach items="${datas}" var="goods">
-					<div
-						onclick="location.href='../goods/GoodsServlet?action=adminGoodsForm&prod_no=${goods.prod_no}'"
-						style="cursor: pointer">
-						<span>${goods.prod_no} <img
-							src="../images/${goods.prod_image}" width="250" height="250"></span>
+					<div onclick="location.href='../goods/GoodsServlet?action=adminGoodsForm&prod_no=${goods.prod_no}'" style="cursor: pointer">
+						<span>${goods.prod_no} <img src="../upload/${goods.prod_image}" width="250" height="250"></span>
 						<span>${goods.prod_name} </span>
 						<!-- <span>${goods.prod_content}</span>    -->
-						
+
 						<!--     -->
 						<span>${goods.onhand_qty} </span>
 						<!--     -->

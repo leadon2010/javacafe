@@ -61,8 +61,7 @@
 				<div style="background-color: lime;">
 
 					<ul class="menu">
-						<li><a href="../goods/GoodsServlet?action=goodsList">전체</a>
-							&nbsp;&nbsp;&nbsp;</li>
+						<li><a href="../goods/GoodsServlet?action=goodsList">전체</a> &nbsp;&nbsp;&nbsp;</li>
 						<li><a href="../goods/GoodsServlet?action=goodsList&prod_category=BEANS">원두</a>
 							&nbsp;&nbsp;&nbsp;</li>
 						<li><a href="../goods/GoodsServlet?action=goodsList&prod_category=DUTCH">더치원액</a>
@@ -76,9 +75,8 @@
 					</ul>
 				</div>
 				<c:forEach items="${datas}" var="goods">
-					<div onclick="location.href='../goods/GoodsServlet?action=goodsForm&prod_no=${goods.prod_no}'"
-						style="cursor: pointer">
-						<span>${goods.prod_no} <img src="../images/${goods.prod_image}" width="250" height="250"></span>
+					<div onclick="location.href='../goods/GoodsServlet?action=goodsForm&prod_no=${goods.prod_no}'" style="cursor: pointer">
+						<span>${goods.prod_no} <img src="../upload/${goods.prod_image}" width="250" height="250"></span>
 						<span>${goods.prod_name} </span>
 						<!-- <span>${goods.prod_content}</span>    -->
 
