@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -14,6 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.beanutils.BeanUtils;
+
+import net.sf.json.JSONArray;
 
 /**
  * Servlet implementation class EmpServlet DB에 저장되어있는것 보기
@@ -64,7 +67,11 @@ public class GoodsServlet extends HttpServlet {
 			request.getRequestDispatcher("../goods/goodsForm.jsp").forward(request, response);
 
 		} else if (action.equals("adminCategory")) {
-			request.setAttribute("datas", goodsDAO.selectCategory());
+			CategoryDAO dao = new CategoryDAO();
+			List<CategoryDO> list = dao.selectAll();
+//			out.print(JSONArray.fromObject(list).toString());
+			request.setAttribute("datas", list);
+			request.getRequestDispatcher("../goods/goodsCategory.jsp").forward(request, response);
 
 		} else if (action.equals("adminGoodsList")) {
 			if (goodsDO.getProd_category() == null) {

@@ -6,8 +6,7 @@
 <html>
 <head>
 <title>goodsList.jsp(상품 목록 화면)</title>
-<link rel="stylesheet" href="../common/members.css" type="text/css"
-	media="screen" />
+<link rel="stylesheet" href="../common/members.css" type="text/css" media="screen" />
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="//code.jquery.com/jquery.min.js"></script>
@@ -70,13 +69,10 @@ ul.menu li {
 				<div style="background-color: lime;">
 
 					<ul class="menu">
-						<li><a href="../goods/GoodsServlet?action=adminGoodsList">전체</a>
-							&nbsp;&nbsp;&nbsp;</li>
+						<li><a href="../goods/GoodsServlet?action=adminGoodsList">전체</a>&nbsp;&nbsp;&nbsp;</li>
 						<c:forEach items="${rs.rows}" var="gds">
-							<li><a
-								href="../goods/GoodsServlet?action=adminGoodsList&prod_category=${gds.category_id}"
-								title="${gds.category_desc}"> ${gds.category_name}</a>
-								&nbsp;&nbsp;&nbsp;</li>
+							<li><a href="../goods/GoodsServlet?action=adminGoodsList&prod_category=${gds.category_id}" title="${gds.category_desc}">
+							  ${gds.category_name}</a> &nbsp;&nbsp;&nbsp;</li>
 							<%-- <li><a
 							href="../goods/GoodsServlet?action=adminGoodsList&prod_category=BEANS">원두</a>
 							&nbsp;&nbsp;&nbsp;</li>
