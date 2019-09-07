@@ -6,7 +6,7 @@ public class My {
 	}
 
 	public static void main(String[] args) {
-		String[] str = { "a", "b" };
-		Deadlock.main(str);
+//		String[] str = { "a", "b" };
+		Deadlock.main();
 	}
 }
