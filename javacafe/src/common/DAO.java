@@ -19,23 +19,22 @@ public class DAO {
 	protected PreparedStatement pstmt;
 
 	public void connect() {
-		int choi = 1;
+		int choi = 2;
 		try {
 			if (choi == 1) {
-				// 1. jdbc driver
 				Class.forName("oracle.jdbc.driver.OracleDriver");
-
-				// 2. db connect
 				String url = "jdbc:oracle:thin:@192.168.0.17:1521:orcl";
+
+				// 1. jdbc driver
+				// 2. db connect
 				conn = DriverManager.getConnection(url, "javacafe", "javacafe");
 				// System.out.println(conn == null ? "connection error!!" : "success!!");
 
 			} else {
 				// 3. create statement
-				stmt = conn.createStatement();
 				Context initContext = new InitialContext();
 				Context envContext = (Context) initContext.lookup("java:/comp/env");
-				DataSource ds = (DataSource) envContext.lookup("jdbc/oracle_jsp");
+				DataSource ds = (DataSource) envContext.lookup("jdbc/oracle_local");
 				conn = ds.getConnection();
 			}
 			if (conn != null) {
