@@ -42,8 +42,7 @@
 			<div align="center">
 				<div style="background-color: lime;">goodsCategory</div>
 				<div>
-					<form action="GoodsServlet" id="frm1"
-						onsubmit="return validateForm()" method="get">
+					<form action="GoodsServlet" id="frm1" onsubmit="return validateForm()" method="get">
 						<input type="hidden" name="action" value="insertCategory">
 						<table border=1>
 							<tr>
@@ -54,9 +53,9 @@
 							</tr>
 							<c:forEach items="${datas}" var="category">
 								<tr>
-									<td>${category.category_id }</td>
-									<td><input type="text" value="${category.category_name }" required></td>
-									<td><input type="text" value="${category.category_desc }" required></td>
+									<td>${category.category_id}</td>
+									<td><input type="text" value="${category.category_name}" required></td>
+									<td><input type="text" value="${category.category_desc}" required></td>
 									<td><input type="button" value="Change" onclick="updateCategory(this)"></td>
 								</tr>
 							</c:forEach>
@@ -76,9 +75,7 @@
 	</div>
 	<script>
 		function updateCase(elm) {
-			console.log(elm.value)
-			document.getElementById("category_id").value = elm.value
-					.toUpperCase();
+			document.getElementById("category_id").value = elm.value.toUpperCase();
 		}
 		function validateForm() {
 			console.log("valudateForm");
@@ -92,7 +89,8 @@
 			return true;
 		}
 		function updateCategory(obj) {
-			var $id = obj.parentElement.children[0].text;
+			var $id = obj.parentElement.parentElement.children[0].innerHTML;
+			console.log($id);
 			var $name = obj.parentElement.parentElement.children[1].children[0].value;
 			var $desc = obj.parentElement.parentElement.children[2].children[0].value;
 			var xhttp = new XMLHttpRequest();
@@ -102,10 +100,8 @@
 				}
 			}
 			xhttp.open("POST", "GoodsServlet", true);
-			xhttp.setRequestHeader("Content-type",
-					"application/x-www-form-urlencoded");
-			xhttp.send("action=updateCategory&category_id=" + $id + "&category_name=" + $name
-					+ "&category_desc=" + $desc);
+			xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			xhttp.send("action=updateCategory&category_id=" + $id + "&category_name=" + $name + "&category_desc=" + $desc);
 		}
 	</script>
 </body>
