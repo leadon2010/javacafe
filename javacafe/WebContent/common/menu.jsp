@@ -18,6 +18,7 @@
 			<li><a href="../goods/GoodsServlet?action=goodsList">홈화면</a></li>
 			<li><a href="../members/login.jsp">로그인</a></li>
 			<li><a href="../members/userRegister.jsp">회원가입</a></li>
+			<li><a href="../goods/GoodsServlet?action=adminCategory">상품Category관리</a></li>
 		</c:if>
 		<!-- 일반회원메뉴 -->
 		<c:if test="${!empty sessionScope.userno}">

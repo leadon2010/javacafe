@@ -9,6 +9,25 @@ import common.DAO;
 
 public class CategoryDAO extends DAO {
 
+	public void updateCategory(CategoryDO cat) {
+		connect();
+		String sql = "update category set category_name=?, category_desc=? where category_id=?";
+
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(3, cat.getCategory_id());
+			pstmt.setString(1, cat.getCategory_name());
+			pstmt.setString(2, cat.getCategory_desc());
+			pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		} finally {
+			disconnect();
+		}
+	}
+
 	public void insertCategory(CategoryDO cat) {
 		connect();
 		String sql = "insert into category values(?,?,?)";

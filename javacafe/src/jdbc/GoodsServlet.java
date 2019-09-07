@@ -66,10 +66,25 @@ public class GoodsServlet extends HttpServlet {
 			request.setAttribute("goods", gds);
 			request.getRequestDispatcher("../goods/goodsForm.jsp").forward(request, response);
 
+		} else if (action.equals("updateCategory")) {
+			String $id = request.getParameter("category_id");
+			String $name = request.getParameter("category_name");
+			String $desc = request.getParameter("category_desc");
+			System.out.println($id +" "+$name+" " +$desc);
+			CategoryDAO catDao = new CategoryDAO();
+			CategoryDO cat = new CategoryDO();
+			cat.setCategory_id($id);
+			cat.setCategory_name($name);
+			cat.setCategory_desc($desc);
+			catDao.updateCategory(cat);
+
+			response.sendRedirect("GoodsServlet?action=adminCategory");
+			
 		} else if (action.equals("insertCategory")) {
-			String $id = request.getParameter("id");
-			String $name = request.getParameter("name");
-			String $desc = request.getParameter("desc");
+			String $id = request.getParameter("category_id");
+			String $name = request.getParameter("category_name");
+			String $desc = request.getParameter("category_desc");
+			System.out.println($id +" "+$name+" " +$desc);
 			CategoryDAO catDao = new CategoryDAO();
 			CategoryDO cat = new CategoryDO();
 			cat.setCategory_id($id);
@@ -77,11 +92,11 @@ public class GoodsServlet extends HttpServlet {
 			cat.setCategory_desc($desc);
 			catDao.insertCategory(cat);
 
-//			response.sendRedirect("GoodsServlet?action=adminCategory");
-			CategoryDAO dao = new CategoryDAO();
-			List<CategoryDO> list = dao.selectAll();
-			request.setAttribute("datas", list);
-			request.getRequestDispatcher("../goods/goodsCategory.jsp").forward(request, response);
+			response.sendRedirect("GoodsServlet?action=adminCategory");
+//			CategoryDAO dao = new CategoryDAO();
+//			List<CategoryDO> list = dao.selectAll();
+//			request.setAttribute("datas", list);
+//			request.getRequestDispatcher("../goods/goodsCategory.jsp").forward(request, response);
 
 		} else if (action.equals("adminCategory")) {
 			CategoryDAO dao = new CategoryDAO();
