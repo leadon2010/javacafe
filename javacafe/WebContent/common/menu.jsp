@@ -5,8 +5,9 @@
 <html>
 
 <head>
-	<title>java menu</title>
-	<link rel="stylesheet" href="../common/members.css" type="text/css" media="screen" />
+<title>java menu</title>
+<link rel="stylesheet" href="../common/members.css" type="text/css"
+	media="screen" />
 </head>
 
 <body>
@@ -38,7 +39,7 @@
 			<!-- <li><a href="../goods/goods_form.jsp">상품조회</a></li> -->
 			<li><a href="../goods/adminGoodsRegister.jsp">상품등록</a></li>
 			<li><a href="../goods/GoodsServlet?action=adminGoodsList">관리자상품list</a></li>
-			<li><a href="../goods/goodsCategory.jsp">상품Category관리</a></li>
+			<li><a href="../goods/GoodsServlet?action=adminCategory">상품Category관리</a></li>
 			<!-- <li><a href="../goods/GoodsServlet?action=selectAll">상품list</a></li> -->
 			<hr>
 			<!-- <li>↓↓호섭작업메뉴↓↓</li> -->

@@ -52,7 +52,7 @@ public class GoodsServlet extends HttpServlet {
 		// action에서 따라서 처리
 		String action = request.getParameter("action");
 		System.out.println("action===" + action);
-		
+
 		if (action == null) {
 			out.println("action이 null입니다.");
 
@@ -66,10 +66,26 @@ public class GoodsServlet extends HttpServlet {
 			request.setAttribute("goods", gds);
 			request.getRequestDispatcher("../goods/goodsForm.jsp").forward(request, response);
 
+		} else if (action.equals("insertCategory")) {
+			String $id = request.getParameter("id");
+			String $name = request.getParameter("name");
+			String $desc = request.getParameter("desc");
+			CategoryDAO catDao = new CategoryDAO();
+			CategoryDO cat = new CategoryDO();
+			cat.setCategory_id($id);
+			cat.setCategory_name($name);
+			cat.setCategory_desc($desc);
+			catDao.insertCategory(cat);
+
+//			response.sendRedirect("GoodsServlet?action=adminCategory");
+			CategoryDAO dao = new CategoryDAO();
+			List<CategoryDO> list = dao.selectAll();
+			request.setAttribute("datas", list);
+			request.getRequestDispatcher("../goods/goodsCategory.jsp").forward(request, response);
+
 		} else if (action.equals("adminCategory")) {
 			CategoryDAO dao = new CategoryDAO();
 			List<CategoryDO> list = dao.selectAll();
-//			out.print(JSONArray.fromObject(list).toString());
 			request.setAttribute("datas", list);
 			request.getRequestDispatcher("../goods/goodsCategory.jsp").forward(request, response);
 

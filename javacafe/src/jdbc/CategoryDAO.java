@@ -1,11 +1,32 @@
 package jdbc;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import common.DAO;
 
 public class CategoryDAO extends DAO {
+
+	public void insertCategory(CategoryDO cat) {
+		connect();
+		String sql = "insert into category values(?,?,?)";
+
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, cat.getCategory_id());
+			pstmt.setString(2, cat.getCategory_name());
+			pstmt.setString(3, cat.getCategory_desc());
+			pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		} finally {
+			disconnect();
+		}
+	}
 
 	public ArrayList<CategoryDO> selectAll() {
 		connect();

@@ -8,6 +8,20 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
+	$(document).ready(function() {
+		$('#submit').on("click", function() {
+			$.ajax({
+				url: "GoodsServlet",
+				data: {id:$('#category_id').val(),
+					name:$('#category_name').val(),
+					desc:$('#category_desc').val(),
+					action:'insertCategory'},
+				success: function() {
+					location.reload();
+				}
+			});
+		})
+	});
 	
 </script>
 </head>
@@ -24,9 +38,8 @@
 		<!-- article page -->
 		<article>
 			<div align="center">
-				<h3>adminGoodsList</h3>
+				<h3>goodsCategory</h3>
 				<div style="background-color: lime;"></div>
-${datas}
 				<table border=1>
 					<tr>
 						<th>Category</th>
@@ -40,6 +53,14 @@ ${datas}
 							<td><input type="text" value="${category.category_desc }"></td>
 						</tr>
 					</c:forEach>
+					<tr>
+						<td><input type="text" id="category_id" onchage="$(this).toUpperCase()"></td>
+						<td><input type="text" id="category_name"></td>
+						<td><input type="text" id="category_desc"></td>
+					</tr>
+					<tr>
+						<td colspan="3" align="center"><input id="submit" type="button" value="Add">
+					</tr>
 				</table>
 
 			</div>

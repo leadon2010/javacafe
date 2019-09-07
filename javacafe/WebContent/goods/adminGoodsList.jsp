@@ -48,7 +48,7 @@ ul.menu li {
 </style>
 </head>
 
-<sql:query var="rs" dataSource="jdbc/oracle">
+<sql:query var="rs" dataSource="jdbc/oracle_local">
 	select category_id, category_name, category_desc from category
 </sql:query>
 
