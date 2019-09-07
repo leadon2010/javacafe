@@ -22,26 +22,26 @@ public class Deadlock {
 		}
 	}
 
-	public static void main(String[] args) {
+	public static void main() {
 		System.out.println("start");
 		final Friend alphonse = new Friend("Alphonse");
 		final Friend gaston = new Friend("Gaston");
-		Thread tha = new Thread(new Runnable() {
+		/* Thread tha = */new Thread(new Runnable() {
 			public void run() {
 				alphonse.bow(gaston);
 			}
-		});
-		tha.setName("AAA");
-		System.out.println(tha.getName());
-		tha.start();
-		Thread thb = new Thread(new Runnable() {
+		}).start();
+//		tha.setName("AAA");
+//		System.out.println(tha.getName());
+//		tha.start();
+		/* Thread thb = */new Thread(new Runnable() {
 			public void run() {
 				gaston.bow(alphonse);
 			}
-		});
-		thb.setName("BBB");
-		System.out.println(thb.getName());
-		thb.start();
+		}).start();
+//		thb.setName("BBB");
+//		System.out.println(thb.getName());
+//		thb.start();
 		System.out.println("end");
 	}
 }
