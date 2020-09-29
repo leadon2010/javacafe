@@ -62,16 +62,11 @@
 
 					<ul class="menu">
 						<li><a href="../goods/GoodsServlet?action=goodsList">전체</a> &nbsp;&nbsp;&nbsp;</li>
-						<li><a href="../goods/GoodsServlet?action=goodsList&prod_category=BEANS">원두</a>
-							&nbsp;&nbsp;&nbsp;</li>
-						<li><a href="../goods/GoodsServlet?action=goodsList&prod_category=DUTCH">더치원액</a>
-							&nbsp;&nbsp;&nbsp;</li>
-						<li><a href="../goods/GoodsServlet?action=goodsList&prod_category=BEVERAGE">음료류</a>
-							&nbsp;&nbsp;&nbsp;</li>
-						<li><a href="../goods/GoodsServlet?action=goodsList&prod_category=FOODS">푸드</a>
-							&nbsp;&nbsp;&nbsp;</li>
-						<li><a href="../goods/GoodsServlet?action=goodsList&prod_category=CUPS">찻잔</a>
-							&nbsp;&nbsp;&nbsp;</li>
+						<li><a href="../goods/GoodsServlet?action=goodsList&prod_category=BEANS">원두</a>	&nbsp;&nbsp;&nbsp;</li>
+						<li><a href="../goods/GoodsServlet?action=goodsList&prod_category=DUTCH">더치원액</a>&nbsp;&nbsp;&nbsp;</li>
+						<li><a href="../goods/GoodsServlet?action=goodsList&prod_category=BEVERAGE">음료류</a>&nbsp;&nbsp;&nbsp;</li>
+						<li><a href="../goods/GoodsServlet?action=goodsList&prod_category=FOODS">푸드</a>	&nbsp;&nbsp;&nbsp;</li>
+						<li><a href="../goods/GoodsServlet?action=goodsList&prod_category=CUPS">찻잔</a>&nbsp;&nbsp;&nbsp;</li>
 					</ul>
 				</div>
 				<c:forEach items="${datas}" var="goods">

@@ -1,4 +1,4 @@
-package jdbc;
+package board;
 
 import java.io.IOException;
 import java.io.PrintWriter;

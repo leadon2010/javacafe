@@ -104,7 +104,7 @@ public class GoodsServlet extends HttpServlet {
 			CategoryDAO dao = new CategoryDAO();
 			List<CategoryDO> list = dao.selectAll();
 			request.setAttribute("datas", list);
-			request.getRequestDispatcher("../goods/goodsCategory.jsp").forward(request, response);
+			request.getRequestDispatcher("goodsCategory.jsp").forward(request, response);
 
 		} else if (action.equals("adminGoodsList")) {
 			if (goodsDO.getProd_category() == null) {
