@@ -7,7 +7,6 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Login Page</title>
-	<link rel="stylesheet" href="../common/members.css" type="text/css" media="screen" />
 </head>
 
 <body>

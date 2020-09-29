@@ -70,7 +70,7 @@ public class GoodsServlet extends HttpServlet {
 			String $id = request.getParameter("category_id");
 			String $name = request.getParameter("category_name");
 			String $desc = request.getParameter("category_desc");
-			System.out.println($id +" "+$name+" " +$desc);
+			System.out.println($id + " " + $name + " " + $desc);
 			CategoryDAO catDao = new CategoryDAO();
 			CategoryDO cat = new CategoryDO();
 			cat.setCategory_id($id);
@@ -79,12 +79,12 @@ public class GoodsServlet extends HttpServlet {
 			catDao.updateCategory(cat);
 
 			response.sendRedirect("GoodsServlet?action=adminCategory");
-			
+
 		} else if (action.equals("insertCategory")) {
 			String $id = request.getParameter("category_id");
 			String $name = request.getParameter("category_name");
 			String $desc = request.getParameter("category_desc");
-			System.out.println($id +" "+$name+" " +$desc);
+			System.out.println($id + " " + $name + " " + $desc);
 			CategoryDAO catDao = new CategoryDAO();
 			CategoryDO cat = new CategoryDO();
 			cat.setCategory_id($id);

@@ -4,9 +4,8 @@
 <html>
 
 <head>
-<title>index page</title>
-<link rel="stylesheet" href="../common/members.css" type="text/css"
-	media="screen" />
+	<title>index page</title>
+	<link rel="stylesheet" href="../common/members.css" type="text/css" media="screen" />
 </head>
 
 <body>

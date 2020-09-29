@@ -1,12 +1,12 @@
-<%@page import="members.MembersDO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@page import="members.MembersDO"%>
+
 <!DOCTYPE html>
 <html>
 
 <head>
 	<title>User Registration Form</title>
-	<link rel="stylesheet" href="../common/members.css" type="text/css" media="screen" />
 </head>
 
 <body>

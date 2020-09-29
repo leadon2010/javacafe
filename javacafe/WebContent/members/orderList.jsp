@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="members.OrdersDO"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.List"%>
@@ -9,16 +11,14 @@
 <%@page import="jdbc.GoodsDAO"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>cart list</title>
-<link rel="stylesheet" href="../common/members.css" type="text/css"
-	media="screen" />
+	<title>cart list</title>
+	<link rel="stylesheet" href="../common/members.css" type="text/css" media="screen" />
 </head>
 
 <body>
@@ -77,4 +77,5 @@
 		<footer><%@ include file="../common/footer.jsp"%></footer>
 	</div>
 </body>
+
 </html>

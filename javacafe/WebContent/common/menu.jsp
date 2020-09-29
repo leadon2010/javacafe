@@ -5,9 +5,7 @@
 <html>
 
 <head>
-<title>java menu</title>
-<link rel="stylesheet" href="../common/members.css" type="text/css"
-	media="screen" />
+	<title>java menu</title>
 </head>
 
 <body>
@@ -22,8 +20,7 @@
 		<!-- 일반회원메뉴 -->
 		<c:if test="${!empty sessionScope.userno}">
 			<li>${sessionScope.userno.name}(${sessionScope.userno.grade})</li>
-			<li><a href="../members/memberControl.jsp?action=mypage">My
-					Page</a></li>
+			<li><a href="../members/memberControl.jsp?action=mypage">My Page</a></li>
 			<li><a href="../members/memberControl.jsp?action=logout">로그아웃</a></li>
 			<li><a href="../goods/GoodsServlet?action=goodsList">홈화면</a></li>
 			<li><a href="../members/memberControl.jsp?action=cartlist">장바구니보기</a></li>

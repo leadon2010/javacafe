@@ -23,7 +23,7 @@ public class DAO {
 		try {
 			if (choi == 1) {
 				Class.forName("oracle.jdbc.driver.OracleDriver");
-				String url = "jdbc:oracle:thin:@192.168.0.17:1521:orcl";
+				String url = "jdbc:oracle:thin:@192.168.0.16:1521:xe";
 
 				// 1. jdbc driver
 				// 2. db connect
@@ -34,7 +34,7 @@ public class DAO {
 				// 3. create statement
 				Context initContext = new InitialContext();
 				Context envContext = (Context) initContext.lookup("java:/comp/env");
-				DataSource ds = (DataSource) envContext.lookup("jdbc/oracle_local");
+				DataSource ds = (DataSource) envContext.lookup("jdbc/oracle_javacafe");
 				conn = ds.getConnection();
 			}
 			if (conn != null) {
