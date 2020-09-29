@@ -1,4 +1,4 @@
-package jdbc;
+package goods;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,6 +16,8 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.beanutils.BeanUtils;
 
+import jdbc.CategoryDAO;
+import jdbc.CategoryDO;
 import net.sf.json.JSONArray;
 
 /**

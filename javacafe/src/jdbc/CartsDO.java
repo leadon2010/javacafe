@@ -1,5 +1,7 @@
 package jdbc;
 
+import goods.GoodsDO;
+
 public class CartsDO extends GoodsDO {
 
 	String detail_no;

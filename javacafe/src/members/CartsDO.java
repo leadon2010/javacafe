@@ -1,6 +1,6 @@
 package members;
 
-import jdbc.GoodsDO;
+import goods.GoodsDO;
 
 public class CartsDO extends GoodsDO {
 

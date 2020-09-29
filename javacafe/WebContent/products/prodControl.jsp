@@ -1,5 +1,5 @@
 <%@page import="java.util.ArrayList"%>
-<%@page import="jdbc.GoodsDO"%>
+<%@page import="goods.GoodsDO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -7,8 +7,8 @@
 	request.setCharacterEncoding("utf-8");
 %>
 
-<jsp:useBean id="gdsdo" class="jdbc.GoodsDO" />
-<jsp:useBean id="gdsdao" class="jdbc.GoodsDAO" />
+<jsp:useBean id="gdsdo" class="goods.GoodsDO" />
+<jsp:useBean id="gdsdao" class="goods.GoodsDAO" />
 <jsp:setProperty name="gdsdo" property="*" />
 
 <%

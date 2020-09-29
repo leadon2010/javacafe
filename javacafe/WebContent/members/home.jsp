@@ -8,8 +8,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>JSP Page</title>
-<link rel="stylesheet" href="../common/members.css" type="text/css"
-	media="screen" />
 </head>
 <body>
 	<div class="container">
@@ -21,15 +19,13 @@
 		<nav>
 			<%
 				MembersDO userno = (MembersDO) session.getAttribute("userno");
-			%>
-			<%
 				if (userno.getGrade() != "R") {
 			%>
-			<%@ include file="../common/menu.jsp"%>
+				<%@ include file="../common/menu.jsp"%>
 			<%
 				} else {
 			%>
-			<%@ include file="../common/admenu.jsp"%>
+				<%@ include file="../common/admenu.jsp"%>
 			<%
 				}
 			%>
@@ -49,13 +45,11 @@
 						</tr>
 						<tr>
 							<td>사용자 아이디</td>
-							<td><input type="text" name="user_no" readonly="readonly"
-								value=<%=a.getUser_no()%> /></td>
+							<td><input type="text" name="user_no" readonly="readonly" value=<%=a.getUser_no()%> /></td>
 						</tr>
 						<tr>
 							<td>패스워드</td>
-							<td><input type="password" name="password"
-								value=<%=a.getPassword()%> /></td>
+							<td><input type="password" name="password" value=<%=a.getPassword()%> /></td>
 						</tr>
 						<tr>
 							<td>성명</td>
@@ -67,13 +61,11 @@
 						</tr>
 						<tr>
 							<td>전화번호</td>
-							<td><input type="text" name="phone"
-								value="<%=a.getPhone()%>" /></td>
+							<td><input type="text" name="phone" value="<%=a.getPhone()%>" /></td>
 						</tr>
 						<tr>
 							<td>주소</td>
-							<td><input type="text" name="address1"
-								value="<%=a.getAddress1()%>" /></td>
+							<td><input type="text" name="address1" value="<%=a.getAddress1()%>" /></td>
 						</tr>
 						<tr>
 							<td>생년월일</td>
@@ -81,8 +73,7 @@
 						</tr>
 						<tr>
 							<td>회원등급</td>
-							<td><input type="text" name="grade" readonly="readonly"
-								value="<%=a.getGrade()%>" />
+							<td><input type="text" name="grade" readonly="readonly" value="<%=a.getGrade()%>" />
 					</table>
 					<!--  -->
 					<input type="submit" value="회원정보변경">
@@ -95,7 +86,7 @@
 							<th>카테고리</th>
 							<th>카테고리설명</th>
 						</tr>
-						<sql:query var="rs" dataSource="jdbc/oracle_jsp">
+						<sql:query var="rs" dataSource="jdbc/oracle_javacafe">
 						select category_id, category_name, category_desc from category
 						</sql:query>
 						<c:forEach var="row" items="${rs.rows}">

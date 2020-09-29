@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 import common.DAO;
-import jdbc.GoodsDO;
+import goods.GoodsDO;
 
 public class OrdersDAO extends DAO {
 

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@page import="jdbc.GoodsDO"%>
+<%@page import="goods.GoodsDO"%>
 <%@page import="members.OrderSets"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.List"%>
@@ -21,9 +21,9 @@
 <jsp:useBean id="orsdo" class="members.OrdersDO" />
 <jsp:setProperty name="orsdo" property="*" />
 <jsp:useBean id="orsdao" class="members.OrdersDAO" />
-<jsp:useBean id="gdsdo" class="jdbc.GoodsDO" />
+<jsp:useBean id="gdsdo" class="goods.GoodsDO" />
 <jsp:setProperty name="gdsdo" property="*" />
-<jsp:useBean id="gdsdao" class="jdbc.GoodsDAO" />
+<jsp:useBean id="gdsdao" class="goods.GoodsDAO" />
 <%
 	String action = request.getParameter("action");
 	MembersDO userno = (MembersDO) session.getAttribute("userno");

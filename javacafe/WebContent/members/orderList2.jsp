@@ -5,8 +5,8 @@
 <%@page import="members.CartsDO"%>
 <%@page import="members.CartDAO"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="jdbc.GoodsDO"%>
-<%@page import="jdbc.GoodsDAO"%>
+<%@page import="goods.GoodsDO"%>
+<%@page import="goods.GoodsDAO"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 

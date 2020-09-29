@@ -5,8 +5,6 @@
 <html>
 <head>
 <title>java menu</title>
-<link rel="stylesheet" href="../common/members.css" type="text/css"
-	media="screen" />
 </head>
 
 <body>
@@ -29,7 +27,7 @@
 		</c:if>
 
 		<!-- 관리자메뉴 -->
-		<c:if test="${sessionScope.userno.grade=='R'}">
+		<c:if test="${sessionScope.userno.grade == 'R'}">
 			<li><a href="../members/MemberServ?action=find">회원조회</a></li>
 			<li><a href="../members/MemberServ?action=select">회원전체리스트</a></li>
 			<hr>

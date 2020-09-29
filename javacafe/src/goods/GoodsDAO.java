@@ -1,10 +1,11 @@
-package jdbc;
+package goods;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
 import common.DAO;
+import jdbc.CartsDO;
 
 public class GoodsDAO extends DAO {
 
