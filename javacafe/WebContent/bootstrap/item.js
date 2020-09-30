@@ -1,16 +1,28 @@
 $(document).ready(function () {
 
 	let page = window.location.pathname;
+	// remove carousel on jsp page.
+	let jsPage = page.substring(page.lastIndexOf('.') + 1);
+
 	page = page.substring(page.lastIndexOf('/') + 1, page.lastIndexOf('.'));
 	console.log(page);
+	
+	console.log(jsPage);
+	if(jsPage == 'jsp') {
+		$('#carouselExampleIndicators').css('display', 'none');
+		$('#carouselExampleIndicators').after($('<div />').css('height', '20px'));
+				
+	} else {
+		let grepData = $.grep(data, function (a, b) {
+			return a.category == page;
+		})
+	
+		$(grepData).each(function (i, o) {
+			createNewItem(o);
+		});
+		
+	}
 
-	let grepData = $.grep(data, function (a, b) {
-		return a.category == page;
-	})
-
-	$(grepData).each(function (i, o) {
-		createNewItem(o);
-	});
 
 	// nav click event
 	$('.nav-item').on('click', function () {
@@ -30,7 +42,7 @@ function createNewItem(pno) {
 	});
 	let div3 = $('<div />').addClass("card-body");
 	let h_4 = $('<h4 />').addClass("card-title");
-	let a2 = $('<a />').attr('href', pno.link).html(pno.item + "(" + pno.category + ")");
+	let a2 = $('<a />').attr('href', pno.link + "?item_no=" + pno.item_no).html(pno.item + "(" + pno.category + ")");
 	let h_5 = $('<h5 />').html(new Intl.NumberFormat('ko-KR', {
 		style: 'currency',
 		currency: 'KRW'
