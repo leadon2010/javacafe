@@ -1,8 +1,7 @@
-console.log(JSON.stringify(data));
 
 $(document).ready(function () {
 	$(data).each(function (i, o) {
-		console.log(i);
+//		console.log(i, o);
 		createNewItem(o);
 	});
 });
