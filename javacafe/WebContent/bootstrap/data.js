@@ -1,6 +1,7 @@
 let data = [];
 data.push({
 	link: 'item.jsp',
+	category: 'bean',
 	star: 5,
 	image: 'images/과테말라.jpg',
 	alt: '과테말라산 원두',
@@ -10,6 +11,7 @@ data.push({
 });
 data.push({
 	link: 'item.jsp',
+	category: 'bean',
 	star: 4,
 	image: 'images/브라질산토스.jpg',
 	alt: '브라질산토스 원두',
@@ -19,6 +21,7 @@ data.push({
 });
 data.push({
 	link: 'item.jsp',
+	category: 'bean',
 	star: 3.5,
 	image: 'images/케냐.jpg',
 	alt: '케냐산 원두',
@@ -28,6 +31,7 @@ data.push({
 });
 data.push({
 	link: 'item.jsp',
+	category: 'bean',
 	star: 2,
 	image: 'images/코스타리카.jpg',
 	alt: '코스타리카산 원두',
@@ -37,6 +41,7 @@ data.push({
 });
 data.push({
 	link: 'item.jsp',
+	category: 'bean',
 	star: 3,
 	image: 'images/에티오피아 예가체프.jpg',
 	alt: '에티오피아 예가체프산 원두',
@@ -46,6 +51,7 @@ data.push({
 });
 data.push({
 	link: 'item.jsp',
+	category: 'bean',
 	star: 4.5,
 	image: 'images/콜롬비아.jpg',
 	alt: '콜롬비아산 원두',
@@ -55,6 +61,7 @@ data.push({
 });
 data.push({
 	link: 'item.jsp',
+	category: 'dutch',
 	star: 5,
 	image: 'images/과테말라.jpg',
 	alt: '과테말라산 원두',
@@ -64,6 +71,7 @@ data.push({
 });
 data.push({
 	link: 'item.jsp',
+	category: 'dutch',
 	star: 4,
 	image: 'images/브라질산토스.jpg',
 	alt: '브라질산토스 원두',
@@ -73,6 +81,7 @@ data.push({
 });
 data.push({
 	link: 'item.jsp',
+	category: 'dutch',
 	star: 3.5,
 	image: 'images/케냐.jpg',
 	alt: '케냐산 원두',
@@ -82,6 +91,7 @@ data.push({
 });
 data.push({
 	link: 'item.jsp',
+	category: 'dutch',
 	star: 2,
 	image: 'images/코스타리카.jpg',
 	alt: '코스타리카산 원두',
@@ -91,6 +101,7 @@ data.push({
 });
 data.push({
 	link: 'item.jsp',
+	category: 'dutch',
 	star: 3,
 	image: 'images/에티오피아 예가체프.jpg',
 	alt: '에티오피아 예가체프산 원두',
@@ -100,6 +111,7 @@ data.push({
 });
 data.push({
 	link: 'item.jsp',
+	category: 'dutch',
 	star: 4.5,
 	image: 'images/콜롬비아.jpg',
 	alt: '콜롬비아산 원두',
@@ -109,6 +121,7 @@ data.push({
 });
 data.push({
 	link: 'item.jsp',
+	category: 'beverage',
 	star: 5,
 	image: 'images/과테말라.jpg',
 	alt: '과테말라산 원두',
@@ -118,6 +131,7 @@ data.push({
 });
 data.push({
 	link: 'item.jsp',
+	category: 'beverage',
 	star: 4,
 	image: 'images/브라질산토스.jpg',
 	alt: '브라질산토스 원두',
@@ -127,6 +141,7 @@ data.push({
 });
 data.push({
 	link: 'item.jsp',
+	category: 'beverage',
 	star: 3.5,
 	image: 'images/케냐.jpg',
 	alt: '케냐산 원두',
@@ -136,6 +151,7 @@ data.push({
 });
 data.push({
 	link: 'item.jsp',
+	category: 'beverage',
 	star: 2,
 	image: 'images/코스타리카.jpg',
 	alt: '코스타리카산 원두',
@@ -145,6 +161,7 @@ data.push({
 });
 data.push({
 	link: 'item.jsp',
+	category: 'beverage',
 	star: 3,
 	image: 'images/에티오피아 예가체프.jpg',
 	alt: '에티오피아 예가체프산 원두',
@@ -154,6 +171,7 @@ data.push({
 });
 data.push({
 	link: 'item.jsp',
+	category: 'beverage',
 	star: 4.5,
 	image: 'images/콜롬비아.jpg',
 	alt: '콜롬비아산 원두',

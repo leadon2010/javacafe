@@ -1,9 +1,23 @@
-
 $(document).ready(function () {
-	$(data).each(function (i, o) {
-//		console.log(i, o);
+
+	let page = window.location.pathname;
+	page = page.substring(page.lastIndexOf('/') + 1, page.lastIndexOf('.'));
+	console.log(page);
+
+	let grepData = $.grep(data, function (a, b) {
+		return a.category == page;
+	})
+
+	$(grepData).each(function (i, o) {
 		createNewItem(o);
 	});
+
+	// nav click event
+	$('.nav-item').on('click', function () {
+		$('.nav-item').removeClass('active');
+		$(this).addClass('active');
+	})
+
 });
 
 function createNewItem(pno) {
@@ -16,7 +30,7 @@ function createNewItem(pno) {
 	});
 	let div3 = $('<div />').addClass("card-body");
 	let h_4 = $('<h4 />').addClass("card-title");
-	let a2 = $('<a />').attr('href', pno.link).html(pno.item);
+	let a2 = $('<a />').attr('href', pno.link).html(pno.item + "(" + pno.category + ")");
 	let h_5 = $('<h5 />').html(new Intl.NumberFormat('ko-KR', {
 		style: 'currency',
 		currency: 'KRW'
