@@ -15,6 +15,10 @@
 
   <!-- Custom styles for this template -->
   <link href="css/shop-homepage.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  
+  <script defer src="data.js"></script>
+  <script defer src="item.js"></script>
 
 </head>
 
@@ -75,13 +79,14 @@
           </ol>
           <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
-              <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="First slide">
+              <img class="d-block img-fluid" src="images/bean1.jpg" style="width:900px; height:350px" alt="First slide">
             </div>
             <div class="carousel-item">
-              <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Second slide">
+              <img class="d-block img-fluid" src="images/bean2.jpg" style="width:900px; height:350px" alt="Second slide">
             </div>
             <div class="carousel-item">
-              <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Third slide">
+              <img class="d-block img-fluid" src="images/bean3.jpg" style="width:900px; height:350px" alt="Third slide">
+              <!-- <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Third slide"> -->
             </div>
           </div>
           <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -94,8 +99,9 @@
           </a>
         </div>
 
-        <div class="row">
+<!-- 1)link 2)image 2-1)alt 3)link 4)item 5)price 6)content -->
 
+        <div class="row">
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
               <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
@@ -112,6 +118,7 @@
             </div>
           </div>
 
+<div style="display: none;">
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
               <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
@@ -192,6 +199,7 @@
             </div>
           </div>
 
+</div>
         </div>
         <!-- /.row -->
 
