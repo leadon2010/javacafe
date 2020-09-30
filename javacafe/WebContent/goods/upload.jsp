@@ -3,7 +3,9 @@
 <!DOCTYPE html>
 <html>
 
-<head><title>upload.jsp</title>
+<head>
+    <meta charset="UTF-8">
+	<title>upload.jsp</title>
 </head>
 <body>
 	<form method="post" enctype="multipart/form-data" action="../board/BoardFileUpload">

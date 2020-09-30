@@ -12,6 +12,12 @@
 	<script src="//code.jquery.com/jquery.min.js"></script>
 
 	<style>
+		div {
+			border: 1px dotted red;
+		}
+		.product {
+			display: inline-block;
+		}
 		ul.menu {
 			list-style-type: none;
 			margin: 0;
@@ -70,15 +76,16 @@
 					</ul>
 				</div>
 				<c:forEach items="${datas}" var="goods">
-					<div onclick="location.href='../goods/GoodsServlet?action=goodsForm&prod_no=${goods.prod_no}'" style="cursor: pointer">
-						<span>${goods.prod_no} <img src="../upload/${goods.prod_image}" width="250" height="250"></span>
-						<span>${goods.prod_name} </span>
-						<!-- <span>${goods.prod_content}</span>    -->
+					<div class='product' onclick="location.href='../goods/GoodsServlet?action=goodsForm&prod_no=${goods.prod_no}'" style="cursor: pointer">
+						<div>상품코드:${goods.prod_no}</div>
+						<div><img src="../upload/${goods.prod_image}" width="250" height="250"></div>
+						<div>상품명:${goods.prod_name} </div>
+						<!-- <div>${goods.prod_content}</div>    -->
 
 						<!--     -->
-						<span>${goods.onhand_qty} </span>
+						<div>재고량:${goods.onhand_qty} </div>
 						<!--     -->
-						<span>${goods.prod_price}</span>
+						<div>가격:${goods.prod_price}</div>
 						<!--     -->
 					</div>
 				</c:forEach>

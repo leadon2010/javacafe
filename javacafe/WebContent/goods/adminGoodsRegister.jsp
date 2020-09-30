@@ -1,6 +1,5 @@
-<%@page import="jdbc.CategoryDO"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="jdbc.CategoryDO"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
@@ -8,8 +7,8 @@
 <html>
 
 <head>
+    <meta charset="UTF-8">
 	<title>Product Register</title>
-	<link rel="stylesheet" href="../common/members.css" type="text/css" media="screen" />
 
 	<script src="../ckeditor/ckeditor.js"></script>
 	<script>
@@ -34,7 +33,7 @@
 		}
 	</script>
 </head>
-<sql:query var="rs" dataSource="jdbc/oracle_local">
+<sql:query var="rs" dataSource="jdbc/oracle_javacafe">
 	select category_id, category_name, category_desc from category
 </sql:query>
 
@@ -59,7 +58,7 @@
 				<!--  start page -->
 				<form name="frm1" action="GoodsServlet" method="get">
 					<input type="hidden" name="action" value="adminGoodsRegister">
-					<table border="1" width="700" cellpadding="2" cellspacing="1" bgcolor=#777777>
+					<table border="1" style='width:"700"; cellpadding:"2"; cellspacing:"1"; bgcolor:#777777;'>
 						<tr>
 							<td height=20 align=center bgcolor=#999999>
 								<font color=white><B>상품등록</B></font>
@@ -76,8 +75,7 @@
 									</tr>
 									<tr>
 										<td align="center">상품이미지</td>
-										<td><input type="text" name="prod_image" /> <input type="button" value="파일첨부"
-												onclick="file_open()"><br></td>
+										<td><input type="text" name="prod_image" /> <input type="button" value="파일첨부" onclick="file_open()"><br></td>
 									</tr>
 									<tr>
 										<td align="center">상품설명</td>
@@ -100,8 +98,7 @@
 										<td align="center">상품카테고리</td>
 										<td><select name="prod_category">
 												<c:forEach items="${rs.rows}" var="gds">
-													<option value="${gds.category_id}">
-														${gds.category_name}</option>
+													<option value="${gds.category_id}">${gds.category_name}</option>
 												</c:forEach>
 											</select></td>
 									</tr>

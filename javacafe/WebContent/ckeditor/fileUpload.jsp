@@ -5,8 +5,7 @@
 <%@ page import="java.io.*"%>
 <%@ page import="org.apache.commons.fileupload.FileItem"%>
 <%@ page import="org.apache.commons.fileupload.disk.DiskFileItemFactory"%>
-<%@ page
-	import="org.apache.commons.fileupload.servlet.ServletFileUpload"%>
+<%@ page import="org.apache.commons.fileupload.servlet.ServletFileUpload"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,6 +14,7 @@
 <body>
 	<%
 		String up_url = request.getContextPath() + "/upload"; // 기본 업로드 URL
+		System.out.println("contextPath: " + request.getContextPath());
 		String up_dir = "/upload"; // 기본 업로드 폴더
 		String save_url = "";
 		String save_dir = "";

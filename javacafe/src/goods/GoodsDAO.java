@@ -197,6 +197,7 @@ public class GoodsDAO extends DAO {
 			ResultSet rs = pstmt.executeQuery();
 			rs.next();
 			newpo = rs.getString("pno");
+			System.out.println("신규번호: " + newpo);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -215,8 +216,8 @@ public class GoodsDAO extends DAO {
 			String newpno = newg.createProdNo(prod.getProd_category());
 
 			connect();
-			String sql = "insert into goods(prod_name,prod_content,onhand_qty,prod_price,"
-					+ "off_price,prod_category,prod_image,prod_no) values (?,?,?,?,?,?,?,?)";
+			String sql = "insert into goods(prod_name,prod_content,onhand_qty,prod_price,off_price,prod_category,prod_image,prod_no,useyn) "
+					+ "values (?,?,?,?,?,?,?,?)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, prod.getProd_name());
 			pstmt.setString(2, prod.getProd_content());
@@ -226,6 +227,7 @@ public class GoodsDAO extends DAO {
 			pstmt.setString(6, prod.getProd_category());
 			pstmt.setString(7, prod.getProd_image());
 			pstmt.setString(8, newpno);
+			pstmt.setString(9, prod.getUseyn());
 
 			int r = pstmt.executeUpdate();
 			System.out.println(r + "건 등록완료");
