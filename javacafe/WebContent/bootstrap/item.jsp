@@ -28,6 +28,9 @@
 	<%
 		String itemNo = request.getParameter("item_no");
 	%>
+	<script>
+		localStorage.setItem('itemNo', '<%=itemNo%>');
+	</script>
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -109,15 +112,8 @@
 
 <!-- 1)link 2)image 2-1)alt 3)link 4)item 5)price 6)content -->
 
-  <script>
-	$(document).ready(function() {
-		let div1 = $('<div />').addClass("col-lg-12 col-md-12 mb-4");
-		let div2 = $('<div />').addClass("card h-100");
-		let a1 = $()
-	});
-  </script>
         <div class="row">
-          <div class="col-lg-12 col-md-12 mb-4">
+          <div class="col-lg-12 col-md-12 mb-4" style="display: none;">
             <div class="card h-100">
               <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
               <div class="card-body">
