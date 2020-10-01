@@ -21,13 +21,13 @@
   
   <script defer src="data.js"></script>
   <script defer src="item.js"></script>
-  <script>
-
-  </script>
 
 </head>
 
 <body>
+	<%
+		String itemNo = request.getParameter("item_no");
+	%>
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -109,6 +109,13 @@
 
 <!-- 1)link 2)image 2-1)alt 3)link 4)item 5)price 6)content -->
 
+  <script>
+	$(document).ready(function() {
+		let div1 = $('<div />').addClass("col-lg-12 col-md-12 mb-4");
+		let div2 = $('<div />').addClass("card h-100");
+		let a1 = $()
+	});
+  </script>
         <div class="row">
           <div class="col-lg-12 col-md-12 mb-4">
             <div class="card h-100">

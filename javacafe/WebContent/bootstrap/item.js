@@ -10,7 +10,7 @@ $(document).ready(function () {
 	console.log(jsPage);
 	if(jsPage == 'jsp') {
 		$('#carouselExampleIndicators').css('display', 'none');
-		$('#carouselExampleIndicators').after($('<div />').css('height', '20px'));
+		$('#carouselExampleIndicators').after($('<div />').css('height', '23px'));
 				
 	} else {
 		let grepData = $.grep(data, function (a, b) {
