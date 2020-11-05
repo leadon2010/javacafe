@@ -23,7 +23,7 @@ public class DAO {
 		try {
 			if (choi == 1) {
 				Class.forName("oracle.jdbc.driver.OracleDriver");
-				String url = "jdbc:oracle:thin:@192.168.0.16:1521:xe";
+				String url = "jdbc:oracle:thin:@192.168.0.18:1521:xe";
 
 				// 1. jdbc driver
 				// 2. db connect

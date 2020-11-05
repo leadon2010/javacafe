@@ -7,6 +7,7 @@
 <head>
 	<title>java header</title>
 	<link rel="stylesheet" href="../common/members.css" type="text/css" media="screen" />
+	<script src="../js/jquery-3.5.1.min.js"></script>
 </head>
 
 <body>

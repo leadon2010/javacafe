@@ -15,9 +15,11 @@
 		div {
 			border: 1px dotted red;
 		}
+
 		.product {
 			display: inline-block;
 		}
+
 		ul.menu {
 			list-style-type: none;
 			margin: 0;
@@ -67,26 +69,22 @@
 				<div style="background-color: lime;">
 
 					<ul class="menu">
-						<li><a href="../goods/GoodsServlet?action=goodsList">전체</a> &nbsp;&nbsp;&nbsp;</li>
-						<li><a href="../goods/GoodsServlet?action=goodsList&prod_category=BEANS">원두</a>	&nbsp;&nbsp;&nbsp;</li>
-						<li><a href="../goods/GoodsServlet?action=goodsList&prod_category=DUTCH">더치원액</a>&nbsp;&nbsp;&nbsp;</li>
-						<li><a href="../goods/GoodsServlet?action=goodsList&prod_category=BEVERAGE">음료류</a>&nbsp;&nbsp;&nbsp;</li>
-						<li><a href="../goods/GoodsServlet?action=goodsList&prod_category=FOODS">푸드</a>	&nbsp;&nbsp;&nbsp;</li>
-						<li><a href="../goods/GoodsServlet?action=goodsList&prod_category=CUPS">찻잔</a>&nbsp;&nbsp;&nbsp;</li>
+						<li><a href="../goods/GoodsServlet?action=goodsList">전체</a></li>
+						<li><a href="../goods/GoodsServlet?action=goodsList&prod_category=BEANS">원두</a></li>
+						<li><a href="../goods/GoodsServlet?action=goodsList&prod_category=DUTCH">더치원액</a></li>
+						<li><a href="../goods/GoodsServlet?action=goodsList&prod_category=BEVERAGE">음료류</a></li>
+						<li><a href="../goods/GoodsServlet?action=goodsList&prod_category=FOODS">푸드</a></li>
+						<li><a href="../goods/GoodsServlet?action=goodsList&prod_category=CUPS">찻잔</a></li>
 					</ul>
 				</div>
 				<c:forEach items="${datas}" var="goods">
-					<div class='product' onclick="location.href='../goods/GoodsServlet?action=goodsForm&prod_no=${goods.prod_no}'" style="cursor: pointer">
+					<div class='product' prod_no='${goods.prod_no}' style="cursor: pointer">
 						<div>상품코드:${goods.prod_no}</div>
 						<div><img src="../upload/${goods.prod_image}" width="250" height="250"></div>
 						<div>상품명:${goods.prod_name} </div>
-						<!-- <div>${goods.prod_content}</div>    -->
-
-						<!--     -->
+						<!-- <div>${goods.prod_content}</div> -->
 						<div>재고량:${goods.onhand_qty} </div>
-						<!--     -->
 						<div>가격:${goods.prod_price}</div>
-						<!--     -->
 					</div>
 				</c:forEach>
 			</div>
@@ -95,5 +93,11 @@
 		<footer><%@ include file="../common/footer.jsp"%></footer>
 
 	</div>
-
+	<script>
+		$('div.product').on('click', function () {
+			location.href = '../goods/GoodsServlet?action=goodsForm&prod_no=' + $(this).attr('prod_no');
+		});
+	</script>
 </body>
+
+</html>

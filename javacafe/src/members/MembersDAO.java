@@ -65,7 +65,6 @@ public class MembersDAO extends DAO {
 			ResultSet rs = pstmt.executeQuery();
 
 			if (rs.next()) {
-				System.out.println("login true" + rs.getString("grade"));
 				usr = new MembersDO();
 				usr.setUser_no(rs.getString("user_no"));
 				usr.setPassword(rs.getString("password"));
