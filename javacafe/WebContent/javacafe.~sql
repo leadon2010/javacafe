@@ -48,17 +48,3 @@ FROM   category;
 
 SELECT *
 FROM   goods;
-
-SELECT *
-FROM   boards;
-CREATE TABLE boards(bbsnum VARCHAR2(50)
-                   ,title VARCHAR2(500)
-                   ,contents VARCHAR2(3000)
-                   ,REF VARCHAR2(3000)
-                   ,re_step VARCHAR2(10)
-                   ,reg_date DATE
-                   ,readcount NUMBER
-                   ,password_yn VARCHAR2(10)
-                   ,ref_lev VARCHAR2(10)
-                   ,user_no VARCHAR2(50)
-                   ,prod_no NUMBER);
