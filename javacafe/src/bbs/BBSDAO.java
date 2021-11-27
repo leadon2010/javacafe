@@ -9,7 +9,7 @@ import java.util.List;
 
 import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 
-import com.sun.corba.se.spi.orbutil.fsm.Guard.Result;
+//import com.sun.corba.se.spi.orbutil.fsm.Guard.Result;
 
 import common.DAO;
 import bbs.BBSDAO;
