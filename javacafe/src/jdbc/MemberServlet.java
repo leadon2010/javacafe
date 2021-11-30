@@ -13,9 +13,6 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.beanutils.BeanUtils;
 
-/**
- * Servlet implementation class MemberServlet
- */
 @WebServlet("/members/MemberServlet")
 public class MemberServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -80,13 +77,15 @@ public class MemberServlet extends HttpServlet {
 			}
 
 		} else if (action.equals("login")) {
-			/*if (usrdao.login(usrdo.getUser_no(), usrdo.getPassword())) {
-				response.sendRedirect("MemberServlet?action=home&user_no=" + usrdo.getUser_no());
-
-			} else {
-				response.sendRedirect("login.jsp");
-
-			}*/
+			/*
+			 * if (usrdao.login(usrdo.getUser_no(), usrdo.getPassword())) {
+			 * response.sendRedirect("MemberServlet?action=home&user_no=" +
+			 * usrdo.getUser_no());
+			 * 
+			 * } else { response.sendRedirect("login.jsp");
+			 * 
+			 * }
+			 */
 
 		} else if (action.equals("logout")) {
 			System.out.println("logout");
