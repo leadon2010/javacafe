@@ -6,11 +6,13 @@ div {
 }
 
 div.container {
-	width: 97%;
+	width: 90%;
 	border: 1px solid gray;
+	margin: 5px auto;
 }
 
-header, footer {
+header,
+footer {
 	padding: 1em;
 	color: white;
 	background-color: #006699;
@@ -47,7 +49,8 @@ table {
 	text-align: center;
 }
 
-th, td {
+th,
+td {
 	font-size: 10pt;
 	border: 1px solid #98bf21;
 	height: 30px;
@@ -82,7 +85,9 @@ input[type="date"] {
 	box-sizing: border-box;
 }
 
-input[type="submit"], [type="reset"], [type="button"] {
+input[type="submit"],
+[type="reset"],
+[type="button"] {
 	height: 30px;
 	width: 150px;
 }
@@ -91,7 +96,8 @@ input[type="submit"]:hover {
 	background-color: #45a049;
 }
 
-input[type=text], select {
+input[type=text],
+select {
 	width: 100%;
 	padding: 12px 20px;
 	margin: 8px 0;
@@ -103,4 +109,9 @@ input[type=text], select {
 
 input[type=text]:focus {
 	background-color: lightblue;
+}
+
+h1>a {
+	color: aliceblue;
+	text-decoration: none;
 }

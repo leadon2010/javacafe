@@ -12,10 +12,10 @@
 	media="screen" />
 </head>
 <%
-	GoodsDO gds = new GoodsDO();
-	GoodsDAO gdsdao = new GoodsDAO();
-	ArrayList<GoodsDO> glist = gdsdao.selectAll();
-	request.setAttribute("list", glist);
+GoodsDO gds = new GoodsDO();
+GoodsDAO gdsdao = new GoodsDAO();
+ArrayList<GoodsDO> glist = gdsdao.selectAll();
+request.setAttribute("list", glist);
 %>
 <body>
 	<div class="container">
