@@ -18,7 +18,6 @@ import org.apache.commons.beanutils.BeanUtils;
 
 import jdbc.CategoryDAO;
 import jdbc.CategoryDO;
-import net.sf.json.JSONArray;
 
 /**
  * Servlet implementation class EmpServlet DB에 저장되어있는것 보기

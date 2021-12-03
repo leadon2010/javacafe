@@ -1,11 +1,11 @@
+<%@page import="org.apache.commons.fileupload.FileItem"%>
+<%@page import="org.apache.commons.fileupload.disk.DiskFileItemFactory"%>
+<%@page import="org.apache.commons.fileupload.servlet.ServletFileUpload"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.Iterator"%>
 <%@ page import="java.util.List"%>
 <%@ page import="java.io.*"%>
-<%@ page import="org.apache.commons.fileupload.FileItem"%>
-<%@ page import="org.apache.commons.fileupload.disk.DiskFileItemFactory"%>
-<%@ page import="org.apache.commons.fileupload.servlet.ServletFileUpload"%>
 <!DOCTYPE html>
 <html>
 <head>

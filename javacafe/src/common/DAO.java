@@ -19,15 +19,15 @@ public class DAO {
 	protected PreparedStatement pstmt;
 
 	public void connect() {
-		int choi = 2;
+		int choi = 1;
 		try {
 			if (choi == 1) {
 				Class.forName("oracle.jdbc.driver.OracleDriver");
-				String url = "jdbc:oracle:thin:@192.168.0.18:1521:xe";
+				String url = "jdbc:oracle:thin:@localhost:1521:xe";
 
 				// 1. jdbc driver
 				// 2. db connect
-				conn = DriverManager.getConnection(url, "javacafe", "javacafe");
+				conn = DriverManager.getConnection(url, "c##javacafe", "javacafe");
 				// System.out.println(conn == null ? "connection error!!" : "success!!");
 
 			} else {
