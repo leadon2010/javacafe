@@ -5,7 +5,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class MorningCode1020 {
+public class FileReadWriteEx {
 	public static void main(String[] args) {
 		try {
 			File myFile = new File("myFile.txt");
