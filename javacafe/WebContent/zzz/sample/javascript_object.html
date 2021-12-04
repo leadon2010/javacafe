@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="show"></div>
+
+    <script>
+        var fields = ['name', 'age', 'score'];
+        var data = [{
+            name: 'Hong',
+            age: 10,
+            score: 30
+        }, {
+            name: 'Hwang',
+            age: 20,
+            score: 35
+        }];
+
+
+        var table = {
+            tbl: document.createElement('table'),
+            init: function (fields, data) {
+                this.tbl.append(this.initHead(fields));
+                this.tbl.append(this.initBody(fields, data));
+                this.tbl.setAttribute('border', '1')
+                return this.tbl;
+            },
+            initHead: function (fields) {
+                var thead = document.createElement('thead');
+                var tr = document.createElement('tr');
+                fields.forEach(item => {
+                    var td = document.createElement('th');
+                    td.textContent = item;
+                    tr.append(td);
+                })
+                thead.append(tr);
+                return thead;
+            },
+            initBody: function (fields, data) {
+                var tbody = document.createElement('tbody');
+                data.forEach(item => {
+                    tbody.append(this.getTr(fields, item));
+                });
+                return tbody;
+            },
+            getTr: function (fields, obj) {
+                var tr = document.createElement('tr');
+                fields.forEach(item => {
+                    var td = document.createElement('td');
+                    td.textContent = obj[item];
+                    tr.append(td);
+                })
+                return tr;
+            }
+        }
+        console.log(table);
+        document.getElementById('show').append(table.init(fields, data));
+    </script>
+</body>
+
+</html>
