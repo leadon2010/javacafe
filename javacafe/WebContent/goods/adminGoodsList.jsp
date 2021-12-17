@@ -12,9 +12,9 @@
 	<script src="//code.jquery.com/jquery.min.js"></script>
 
 	<script>
-		$(function () {
-			$(document).tooltip();
-		});
+		//$(function () {
+		//	$(document).tooltip();
+		//});
 	</script>
 
 	<style>
@@ -63,32 +63,35 @@
 		</nav>
 		<!-- article page -->
 		<article>
-		<p>${datas }</p>
+				<p>${category}</p>
 			<div align="center">
 				<h3>adminGoodsList</h3>
 				<div style="background-color: lime;">
 
 					<ul class="menu">
 						<li><a href="../goods/GoodsServlet?action=adminGoodsList">전체</a>&nbsp;&nbsp;&nbsp;</li>
-						<c:forEach items="${datas}" var="gds">
+						<c:forEach items="${category}" var="gds">
 							<li><a href="../goods/GoodsServlet?action=adminGoodsList&prod_category=${gds.category_id}"
 									title="${gds.category_desc}">
-									${gds.category_name}</a> &nbsp;&nbsp;&nbsp;</li>
-							<%-- <li><a
+									${gds.category_name}</a>
+							</li>
+							<%-- 
+							<li><a
 							href="../goods/GoodsServlet?action=adminGoodsList&prod_category=BEANS">원두</a>
 							&nbsp;&nbsp;&nbsp;</li>
-						<li><a
+							<li><a
 							href="../goods/GoodsServlet?action=adminGoodsList&prod_category=DUTCH">더치원액</a>
 							&nbsp;&nbsp;&nbsp;</li>
-						<li><a
+							<li><a
 							href="../goods/GoodsServlet?action=adminGoodsList&prod_category=BEVERAGE">음료류</a>
 							&nbsp;&nbsp;&nbsp;</li>
-						<li><a
+							<li><a
 							href="../goods/GoodsServlet?action=adminGoodsList&prod_category=FOODS">푸드</a>
 							&nbsp;&nbsp;&nbsp;</li>
-						<li><a
+							<li><a
 							href="../goods/GoodsServlet?action=adminGoodsList&prod_category=CUPS" title="고품격 폴란드 수입 찻잔">찻잔</a>
-							&nbsp;&nbsp;&nbsp;</li> --%>
+							&nbsp;&nbsp;&nbsp;</li>
+							 --%>
 						</c:forEach>
 					</ul>
 				</div>
@@ -98,12 +101,8 @@
 						<span>${goods.prod_no} <img src="../upload/${goods.prod_image}" width="250" height="250"></span>
 						<span>${goods.prod_name} </span>
 						<!-- <span>${goods.prod_content}</span>    -->
-
-						<!--     -->
 						<span>${goods.onhand_qty} </span>
-						<!--     -->
 						<span>${goods.prod_price}</span>
-						<!--     -->
 					</div>
 				</c:forEach>
 			</div>

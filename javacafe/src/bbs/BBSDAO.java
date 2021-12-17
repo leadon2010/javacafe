@@ -130,8 +130,8 @@ public class BBSDAO extends DAO {
 
 		try {
 			connect();
-			String sql = "insert into boards (bbsnum, title, contents, ref, user_no,reg_date,readcount, re_step, password_yn,prod_no)"
-					+ " values(BOARDS_SEQ.nextval, ?, ?, Boards_seq.currval, ? ,sysdate,0,0,?,?)";
+			String sql = "insert into boards (bbsnum,title,contents,ref,user_no,reg_date,readcount,re_step,password_yn,prod_no)"
+					+ " values(BOARDS_SEQ.nextval,?,?,Boards_seq.currval,?,sysdate,0,0,?,?)";
 
 			String bbsnum = bbs.getBbsnum();
 

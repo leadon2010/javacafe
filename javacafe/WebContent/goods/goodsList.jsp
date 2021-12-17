@@ -78,7 +78,6 @@
 					</ul>
 				</div>
 				<c:forEach items="${datas}" var="goods">
-				${goods }
 					<div class='product' prod_no='${goods.prod_no}' style="cursor: pointer">
 						<div>상품코드:${goods.prod_no}</div>
 						<div><img src="../upload/${goods.prod_image}" width="250" height="250"></div>

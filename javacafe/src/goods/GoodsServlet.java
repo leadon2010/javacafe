@@ -110,6 +110,10 @@ public class GoodsServlet extends HttpServlet {
 			if (goodsDO.getProd_category() == null) {
 				goodsDO.setProd_category("");
 			}
+			CategoryDAO dao = new CategoryDAO();
+			List<CategoryDO> list = dao.selectAll();
+			request.setAttribute("category", list);
+
 			request.setAttribute("datas", goodsDAO.selectAll(goodsDO.getProd_category()));
 			request.getRequestDispatcher("adminGoodsList.jsp").forward(request, response);
 
@@ -117,7 +121,12 @@ public class GoodsServlet extends HttpServlet {
 			if (goodsDO.getProd_category() == null) {
 				goodsDO.setProd_category("");
 			}
+			CategoryDAO dao = new CategoryDAO();
+			List<CategoryDO> list = dao.selectAll();
+			request.setAttribute("category", list);
+
 			request.setAttribute("datas", goodsDAO.selectAll(goodsDO.getProd_category()));
+
 			request.getRequestDispatcher("goodsList.jsp").forward(request, response);
 
 		} else if (action.equals("goodsConfirm")) {

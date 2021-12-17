@@ -22,7 +22,7 @@ public class DAO {
 	protected ResultSet rs;
 	protected PreparedStatement pstmt;
 
-	final static String DB_URL = "jdbc:oracle:thin:@db202112142040_medium?TNS_ADMIN=D:/Dev/Wallet_DB202112142040";
+	final static String DB_URL = "jdbc:oracle:thin:@db202112142040_medium?TNS_ADMIN=C:/Users/admin/test/Wallet_DB202112142040";
 	final static String DB_USER = "javacafe";
 	final static String DB_PASSWORD = "H1q2w3e4r5tR";
 
