@@ -26,7 +26,8 @@ import jdbc.CategoryDO;
 public class GoodsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	@Override
+	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		// 인코딩
@@ -131,8 +132,8 @@ public class GoodsServlet extends HttpServlet {
 
 		} else if (action.equals("adminGoodsRegisterForm")) {
 			CategoryDAO categoryDAO = new CategoryDAO();
-			ArrayList<CategoryDO> cate = categoryDAO.selectAll();
-			request.setAttribute("cate", cate);
+			ArrayList<CategoryDO> category = categoryDAO.selectAll();
+			request.setAttribute("category", category);
 			request.getRequestDispatcher("adminGoodsRegister.jsp").forward(request, response);
 
 		} else if (action.equals("adminGoodsRegister")) {
@@ -153,12 +154,7 @@ public class GoodsServlet extends HttpServlet {
 		} else {
 			out.println("없는 action 입니다.");
 		}
-	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
-		doGet(request, response);
 	}
 
 }

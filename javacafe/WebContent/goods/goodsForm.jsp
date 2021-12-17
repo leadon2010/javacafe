@@ -63,7 +63,7 @@
 						type="hidden" name="prod_no" value="${goods.prod_no}" />
 					<table>
 						<tr>
-							<td rowspan="8"><img src="../images/${goods.prod_image}"
+							<td rowspan="8"><img src="../upload/${goods.prod_image}"
 								width="300" height="450"></td>
 						</tr>
 						<tr>

@@ -6,10 +6,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Properties;
 
-import javax.sql.*;
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
+import oracle.jdbc.OracleConnection;
+import oracle.jdbc.pool.OracleDataSource;
 
 public class DAO {
 
@@ -18,27 +22,44 @@ public class DAO {
 	protected ResultSet rs;
 	protected PreparedStatement pstmt;
 
+	final static String DB_URL = "jdbc:oracle:thin:@db202112142040_medium?TNS_ADMIN=D:/Dev/Wallet_DB202112142040";
+	final static String DB_USER = "javacafe";
+	final static String DB_PASSWORD = "H1q2w3e4r5tR";
+
 	public void connect() {
-		int choi = 2;
+		int choi = 3;
 		try {
 			if (choi == 1) {
 				Class.forName("oracle.jdbc.driver.OracleDriver");
 				String url = "jdbc:oracle:thin:@localhost:1521:xe";
 
-				// 1. jdbc driver
-				// 2. db connect
 				conn = DriverManager.getConnection(url, "c##javacafe", "javacafe");
 				// System.out.println(conn == null ? "connection error!!" : "success!!");
 
-			} else {
+			} else if (choi == 2) {
 				// 3. create statement
 				Context initContext = new InitialContext();
 				Context envContext = (Context) initContext.lookup("java:/comp/env");
 				DataSource ds = (DataSource) envContext.lookup("jdbc/oracle_javacafe");
 				conn = ds.getConnection();
+
+			} else if (choi == 3) {
+				Properties info = new Properties();
+				info.put(OracleConnection.CONNECTION_PROPERTY_USER_NAME, DB_USER);
+				info.put(OracleConnection.CONNECTION_PROPERTY_PASSWORD, DB_PASSWORD);
+				info.put(OracleConnection.CONNECTION_PROPERTY_DEFAULT_ROW_PREFETCH, "20");
+
+				OracleDataSource ods = new OracleDataSource();
+				ods.setURL(DB_URL);
+				ods.setConnectionProperties(info);
+
+				conn = (OracleConnection) ods.getConnection();
+				System.out.println("dataSource3");
+
 			}
+
 			if (conn != null) {
-				System.out.println("connect()");
+				System.out.println("connect!!");
 			}
 
 		} catch (Exception e) {

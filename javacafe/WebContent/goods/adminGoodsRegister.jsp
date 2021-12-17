@@ -7,7 +7,7 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
+	<meta charset="UTF-8">
 	<title>Product Register</title>
 
 	<script src="../ckeditor/ckeditor.js"></script>
@@ -18,6 +18,7 @@
 				customConfig: '../ckeditor/config.js'
 			});
 		}
+
 		function return_check() {
 			// document.getElementById("contents").value;
 			var data = CKEDITOR.instances.contents.getData();
@@ -28,14 +29,12 @@
 			}
 			return true;
 		}
+
 		function file_open() {
 			window.open("upload.jsp", "upload", "width=300 height=200 left=300 top=30");
 		}
 	</script>
 </head>
-<sql:query var="rs" dataSource="jdbc/oracle_javacafe">
-	select category_id, category_name, category_desc from category
-</sql:query>
 
 <body>
 
@@ -75,7 +74,9 @@
 									</tr>
 									<tr>
 										<td align="center">상품이미지</td>
-										<td><input type="text" name="prod_image" /> <input type="button" value="파일첨부" onclick="file_open()"><br></td>
+										<td><input type="text" name="prod_image" />
+											<input type="button" value="파일첨부" onclick="file_open()">
+										</td>
 									</tr>
 									<tr>
 										<td align="center">상품설명</td>
@@ -93,11 +94,10 @@
 										<td align="center">상품할인가</td>
 										<td><input type="text" name="off_price" /></td>
 									</tr>
-
 									<tr>
 										<td align="center">상품카테고리</td>
 										<td><select name="prod_category">
-												<c:forEach items="${rs.rows}" var="gds">
+												<c:forEach items="${category}" var="gds">
 													<option value="${gds.category_id}">${gds.category_name}</option>
 												</c:forEach>
 											</select></td>

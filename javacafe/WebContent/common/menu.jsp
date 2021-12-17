@@ -29,7 +29,7 @@
 		<li><a href="../members/memberControl.jsp?action=select">회원전체리스트</a></li>
 		<li>:::상품관리:::</li>
 		<!-- <li><a href="../goods/goods_form.jsp">상품조회</a></li> -->
-		<li><a href="../goods/adminGoodsRegister.jsp">상품등록</a></li>
+		<li><a href="../goods/GoodsServlet?action=adminGoodsRegisterForm">상품등록</a></li>
 		<li><a href="../goods/GoodsServlet?action=adminGoodsList">관리자상품list</a></li>
 		<li><a href="../goods/GoodsServlet?action=adminCategory">상품Category관리</a></li>
 		<!-- <li><a href="../goods/GoodsServlet?action=selectAll">상품list</a></li> -->

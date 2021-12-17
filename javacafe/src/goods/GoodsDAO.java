@@ -217,7 +217,7 @@ public class GoodsDAO extends DAO {
 
 			connect();
 			String sql = "insert into goods(prod_name,prod_content,onhand_qty,prod_price,off_price,prod_category,prod_image,prod_no,useyn) "
-					+ "values (?,?,?,?,?,?,?,?)";
+					+ "values (?,?,?,?,?,?,?,?,?)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, prod.getProd_name());
 			pstmt.setString(2, prod.getProd_content());
