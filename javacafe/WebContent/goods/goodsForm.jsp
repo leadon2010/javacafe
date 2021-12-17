@@ -9,6 +9,7 @@
 <head>
 	<title>goodsForm.jsp(상품 상세화면)</title>
 	<link rel="stylesheet" href="../common/members.css" type="text/css" media="screen" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script>
 		function resizeIframe(fr) {
 			fr.setExpression('height', ifrm.document.body.scrollHeight);
@@ -107,9 +108,6 @@
 					onload="resizeIframe(this)"></iframe>
 				</iframe> -->
 				<div id="reply">
-					<form action="" name="reply">
-						
-					</form>
 				</div>
 			</div>
 		</article>
@@ -118,6 +116,9 @@
 		<footer><%@ include file="../common/footer.jsp"%></footer>
 
 	</div>
+	<script>
+		$("#reply").load("../members/BBSServlet?action=list&prod_no=${goods.prod_no}");
+	</script>
 </body>
 
 </html>
