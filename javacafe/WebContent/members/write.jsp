@@ -100,8 +100,6 @@
         }
 
         document.querySelector('[name="writeFrm"]').addEventListener('submit', return_check);
-        //document.querySelector('input[name="title"]').value = 'test';
-        //CKEDITOR.instances.contents.setData('value');
 
         function return_check(e) {
             e.preventDefault();
@@ -115,17 +113,17 @@
             //return true;
 
             //let writeFrm = document.querySelector('[name="writeFrm"]');
-            let frmData = new FormData(e.target);
-            frmData.append('title', CKEDITOR.instances.contents.getData());
+            let frmData = new FormData();
+            frmData.append('action', e.target.action.value);
+            frmData.append('prod_no', e.target.prod_no.value);
+            frmData.append('user_no', e.target.user_no.value);
+            frmData.append('title', e.target.title.value);
+            frmData.append('password_yn', e.target.password_yn.value);
+            frmData.append('contents', CKEDITOR.instances.contents.getData());
 
             for (var value of frmData.values()) {
                 console.log(value);
             }
-
-            //frmData = {
-            //    'action': 'insert',
-            //    'prod_no': 'P12345'
-            //}
 
             fetch('../members/BBSServlet', {
                     method: 'post',
@@ -134,7 +132,7 @@
                     //},
                     body: frmData
                 })
-                //.then(resolve => resolve.json())
+                .then(resolve => resolve.json())
                 .then(result => console.log(result))
                 .catch(error => console.error(error));
 
