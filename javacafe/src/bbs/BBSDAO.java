@@ -127,11 +127,11 @@ public class BBSDAO extends DAO {
 
 	// 등록구현
 	public boolean insert(BBS bbs) {
-
+		System.out.println(bbs);
 		try {
 			connect();
 			String sql = "insert into boards (bbsnum,title,contents,ref,user_no,reg_date,readcount,re_step,password_yn,prod_no)"
-					+ " values(BOARDS_SEQ.nextval,?,?,Boards_seq.currval,?,sysdate,0,0,?,?)";
+					+ " values(BOARDS_SEQ.nextval,?,?,Boards_seq.currval,?,sysdate,0,0,nvl(?,'N'),?)";
 
 			String bbsnum = bbs.getBbsnum();
 

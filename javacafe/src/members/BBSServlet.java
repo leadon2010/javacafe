@@ -3,7 +3,6 @@ package members;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletContext;
@@ -15,6 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.beanutils.BeanUtils;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import bbs.BBS;
 import bbs.BBSDAO;
@@ -32,9 +34,9 @@ public class BBSServlet extends HttpServlet {
 
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	@Override
+	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		// 응답페이지 인코딩
 		response.setContentType("text/html; charset=UTF-8");
 		response.setCharacterEncoding("utf-8");
@@ -86,7 +88,7 @@ public class BBSServlet extends HttpServlet {
 			String ref = request.getParameter("ref");
 			String ref_lev = request.getParameter("ref_lev");
 			String re_step = request.getParameter("re_step");
-			
+
 			String prod_no = request.getParameter("prod_no");
 
 			// 전체 건수
@@ -104,10 +106,14 @@ public class BBSServlet extends HttpServlet {
 		} else if (action.equals("insert")) {
 
 			// 등록처리
+			System.out.println(bbs);
 			if (bbsDAO.insert(bbs)) {
-
 				// 목록으로 페이지 이동
-				response.sendRedirect("../members/BBSServlet?action=list&prod_no=" + bbs.getProd_no());
+				// response.sendRedirect("../members/BBSServlet?action=list&prod_no=" +
+				// bbs.getProd_no());
+				Gson gson = new GsonBuilder().create();
+				out.print(gson.toJson(bbs).toString());
+
 			} else {
 				out.print("<script>");
 				out.print("alert(등록 실패);");
@@ -161,17 +167,6 @@ public class BBSServlet extends HttpServlet {
 		else {
 			out.print("잘못 된 action 입니다.");
 		}
-
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
 }

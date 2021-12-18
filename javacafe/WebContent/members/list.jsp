@@ -40,9 +40,14 @@
 		}
 	</style>
 
+	<script src="../js/jquery-3.5.1.min.js"></script>
 	<script>
 		function dolist(page) {
 			location.href = "../members/BBSServlet?action=list&page=" + page + "&prod_no=" + "${param.prod_no}";
+		}
+
+		function writeFnc(prod_no) {
+			$('#write_reply').load('../members/write.jsp?prod_no=' + prod_no);
 		}
 	</script>
 
@@ -111,14 +116,22 @@
 
 	</table>
 	<c:if test="${not empty sessionScope.userno}">
-		<table align="center">
+		<table style="text-align: center;">
 			<tr>
-				<td><input type=button value="글쓰기" onclick="window.location='../members/write.jsp?prod_no=${param.prod_no}'">
+				<td>
+					<!-- <input type=button value="글쓰기" onclick="writeFnc('${param.prod_no}')"> -->
+					<!-- onclick="window.location='../members/write.jsp?prod_no=${param.prod_no}'" -->
 				</td>
 			</tr>
 		</table>
+		<div id='write_reply'></div>
 	</c:if>
 	<myTag:paging paging="${paging}" jsfunc="dolist" />
+
+	<script>
+		console.log('list.jsp => ${param.prod_no}')
+		writeFnc('${param.prod_no}');
+	</script>
 
 </body>
 
