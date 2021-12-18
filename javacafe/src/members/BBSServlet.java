@@ -86,6 +86,7 @@ public class BBSServlet extends HttpServlet {
 			String ref = request.getParameter("ref");
 			String ref_lev = request.getParameter("ref_lev");
 			String re_step = request.getParameter("re_step");
+			
 			String prod_no = request.getParameter("prod_no");
 
 			// 전체 건수

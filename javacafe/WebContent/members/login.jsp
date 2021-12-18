@@ -32,11 +32,11 @@
 					<table border="1">
 						<tr>
 							<td>아이디</td>
-							<td><input type="text" name="user_no"></td>
+							<td><input type="text" name="user_no" value="user1"></td>
 						</tr>
 						<tr>
 							<td>비밀번호</td>
-							<td><input type="password" name="password"></td>
+							<td><input type="password" name="password" value="1234"></td>
 						</tr>
 						<tr align="center">
 							<td colspan="2"><input type="submit" value="로그인" width="100"></td>

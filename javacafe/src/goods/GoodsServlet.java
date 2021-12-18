@@ -6,6 +6,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,9 +20,6 @@ import org.apache.commons.beanutils.BeanUtils;
 import jdbc.CategoryDAO;
 import jdbc.CategoryDO;
 
-/**
- * Servlet implementation class EmpServlet DB에 저장되어있는것 보기
- */
 @WebServlet("/goods/GoodsServlet")
 public class GoodsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -61,18 +59,20 @@ public class GoodsServlet extends HttpServlet {
 		} else if (action.equals("adminGoodsForm")) { // 상세보기 페이지
 			GoodsDO gds = goodsDAO.selectOne(goodsDO.getProd_no());
 			request.setAttribute("goods", gds);
-			request.getRequestDispatcher("../goods/adminGoodsForm.jsp").forward(request, response);
+
+			request.getRequestDispatcher("adminGoodsForm.jsp").forward(request, response);
 
 		} else if (action.equals("goodsForm")) {
 			GoodsDO gds = goodsDAO.selectOne(goodsDO.getProd_no());
 			request.setAttribute("goods", gds);
-			request.getRequestDispatcher("../goods/goodsForm.jsp").forward(request, response);
+
+			request.getRequestDispatcher("goodsForm.jsp").forward(request, response);
 
 		} else if (action.equals("updateCategory")) {
 			String $id = request.getParameter("category_id");
 			String $name = request.getParameter("category_name");
 			String $desc = request.getParameter("category_desc");
-			System.out.println($id + " " + $name + " " + $desc);
+
 			CategoryDAO catDao = new CategoryDAO();
 			CategoryDO cat = new CategoryDO();
 			cat.setCategory_id($id);
@@ -86,7 +86,7 @@ public class GoodsServlet extends HttpServlet {
 			String $id = request.getParameter("category_id");
 			String $name = request.getParameter("category_name");
 			String $desc = request.getParameter("category_desc");
-			System.out.println($id + " " + $name + " " + $desc);
+
 			CategoryDAO catDao = new CategoryDAO();
 			CategoryDO cat = new CategoryDO();
 			cat.setCategory_id($id);
@@ -95,10 +95,6 @@ public class GoodsServlet extends HttpServlet {
 			catDao.insertCategory(cat);
 
 			response.sendRedirect("GoodsServlet?action=adminCategory");
-//			CategoryDAO dao = new CategoryDAO();
-//			List<CategoryDO> list = dao.selectAll();
-//			request.setAttribute("datas", list);
-//			request.getRequestDispatcher("../goods/goodsCategory.jsp").forward(request, response);
 
 		} else if (action.equals("adminCategory")) {
 			CategoryDAO dao = new CategoryDAO();
@@ -113,8 +109,8 @@ public class GoodsServlet extends HttpServlet {
 			CategoryDAO dao = new CategoryDAO();
 			List<CategoryDO> list = dao.selectAll();
 			request.setAttribute("category", list);
-
 			request.setAttribute("datas", goodsDAO.selectAll(goodsDO.getProd_category()));
+
 			request.getRequestDispatcher("adminGoodsList.jsp").forward(request, response);
 
 		} else if (action.equals("goodsList")) {
@@ -124,17 +120,18 @@ public class GoodsServlet extends HttpServlet {
 			CategoryDAO dao = new CategoryDAO();
 			List<CategoryDO> list = dao.selectAll();
 			request.setAttribute("category", list);
-
 			request.setAttribute("datas", goodsDAO.selectAll(goodsDO.getProd_category()));
-
+			
 			request.getRequestDispatcher("goodsList.jsp").forward(request, response);
 
 		} else if (action.equals("goodsConfirm")) {
+			
 			request.getRequestDispatcher("goodsConfirm.jsp").forward(request, response);
 
 		} else if (action.equals("goodsOrder")) {
 
 		} else if (action.equals("cartCheck")) {
+			
 			request.getRequestDispatcher("cart.jsp").forward(request, response);
 
 		} else if (action.equals("cartOrder")) {
@@ -143,19 +140,23 @@ public class GoodsServlet extends HttpServlet {
 			CategoryDAO categoryDAO = new CategoryDAO();
 			ArrayList<CategoryDO> category = categoryDAO.selectAll();
 			request.setAttribute("category", category);
+			
 			request.getRequestDispatcher("adminGoodsRegister.jsp").forward(request, response);
 
 		} else if (action.equals("adminGoodsRegister")) {
 			goodsDAO.insert(goodsDO);
+			
 			response.sendRedirect("GoodsServlet?action=goodsList");
 
 		} else if (action.equals("adminGoodsCorrectForm")) {
 			GoodsDO gds = goodsDAO.selectOne(goodsDO.getProd_no());
 			request.setAttribute("goods", gds);
+			
 			request.getRequestDispatcher("adminGoodsCorrect.jsp").forward(request, response);
 
 		} else if (action.equals("adminGoodsCorrect")) {
 			goodsDAO.update(goodsDO);
+			
 			response.sendRedirect("GoodsServlet?action=goodsList");
 
 		} else if (action.equals("adminGoodsDelete")) {
