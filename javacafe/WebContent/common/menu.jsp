@@ -13,8 +13,7 @@
 	<!-- 일반회원메뉴 -->
 	<c:if test="${!empty sessionScope.userno}">
 		<li>${sessionScope.userno.name}(${sessionScope.userno.grade})</li>
-		<li><a href="../members/memberControl.jsp?action=mypage">My
-				Page</a></li>
+		<li><a href="../members/memberControl.jsp?action=mypage">My Page</a></li>
 		<li><a href="../members/memberControl.jsp?action=logout">로그아웃</a></li>
 		<li><a href="../goods/GoodsServlet?action=goodsList">홈화면</a></li>
 		<li><a href="../members/memberControl.jsp?action=cartlist">장바구니보기</a></li>
@@ -28,7 +27,8 @@
 		<!-- <li><a href="../members/memberControl.jsp?action=find">회원조회</a></li> -->
 		<li><a href="../members/memberControl.jsp?action=select">회원전체리스트</a></li>
 		<li>:::상품관리:::</li>
-		<!-- <li><a href="../goods/goods_form.jsp">상품조회</a></li> -->
+		<li><a href="../goods/goods_form.jsp">상품조회</a></li>
+		<li><a href="../goods/GoodsServlet?action=goodsList">상품리스트</a></li>
 		<li><a href="../goods/GoodsServlet?action=adminGoodsRegisterForm">상품등록</a></li>
 		<li><a href="../goods/GoodsServlet?action=adminGoodsList">관리자상품list</a></li>
 		<li><a href="../goods/GoodsServlet?action=adminCategory">상품Category관리</a></li>

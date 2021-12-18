@@ -20,9 +20,6 @@ import common.Paging;
 import members.MembersDAO;
 import members.MembersDO;
 
-/**
- * Servlet implementation class EmpServlet
- */
 @WebServlet("/boards/BBSServlet")
 public class BBSServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -56,10 +53,8 @@ public class BBSServlet extends HttpServlet {
 		try {
 			BeanUtils.copyProperties(bbs, request.getParameterMap());
 		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (InvocationTargetException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -97,7 +92,7 @@ public class BBSServlet extends HttpServlet {
 			List<BBS> datas = bbsDAO.selectPage(paging.getFirst(), paging.getLast(), "");
 			request.setAttribute("datas", datas);
 			request.setAttribute("paging", paging);
-			//
+
 			request.getRequestDispatcher("list.jsp").forward(request, response);
 
 		} else if (action.equals("insert")) {
@@ -129,6 +124,7 @@ public class BBSServlet extends HttpServlet {
 			request.setAttribute("bbs", bbs);
 			// 수정폼으로 포워드
 			request.getRequestDispatcher("modify.jsp").forward(request, response);
+
 		} else if (action.equals("modify")) {
 			// 수정 처리
 			if (bbsDAO.update(bbs)) {
@@ -141,6 +137,7 @@ public class BBSServlet extends HttpServlet {
 				out.print("history.go(-1);");
 				out.print("<script>");
 			}
+
 		} else if (action.equals("delete")) {
 			// 삭제 처리
 			if (bbsDAO.delete(bbs.getBbsnum())) {
@@ -148,6 +145,7 @@ public class BBSServlet extends HttpServlet {
 				// 목록으로 페이지 이동
 				response.sendRedirect("BBSServlet?action=list");
 			}
+
 		} else if (action.equals("insertReply")) {
 			// 답글중 가장 최근 답글이 위로 올라가게 처리한다.
 			// 그러기 위해 답글의 순서인 seq를 1증가시킨다.
@@ -156,21 +154,14 @@ public class BBSServlet extends HttpServlet {
 			bbs.setUser_no(((MembersDO) session.getAttribute("userno")).getUser_no());
 			bbsDAO.insertReply(bbs);
 			response.sendRedirect("BBSServlet?action=list");
-		}
-
-		else {
+		} else {
 			out.print("잘못 된 action 입니다.");
 		}
 
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

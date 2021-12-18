@@ -113,7 +113,9 @@
 		</article>
 
 		<!-- footer page -->
-		<footer><%@ include file="../common/footer.jsp"%></footer>
+		<footer>
+			<%@ include file="../common/footer.jsp"%>
+		</footer>
 
 	</div>
 	<script>
