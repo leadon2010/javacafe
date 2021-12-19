@@ -88,6 +88,38 @@
     </form>
     <myTag:paging paging="${paging}" jsfunc="dolist" />
 
+    <div id="clone" style="display: none;">
+        <tr>
+            <td width="73"></td>
+            <td align="left">
+                <c:if test="${b.ref_lev > 0}">
+                    <c:forEach begin="1" end="${b.ref_lev}">
+                        &nbsp;&nbsp;
+                        <!-- 답변글일경우 글 제목 앞에 공백을 준다. -->
+                    </c:forEach>
+                    RE :
+                </c:if>
+                <c:if test="${b.password_yn == 'y'}">
+                    <img src="../boards/자물쇠.JPG">
+                    <c:if test="${sessionScope.userno.user_no == b.user_no}">
+                        <a href="../members/BBSServlet?action=selectOne&bbsnum=${b.bbsnum}">${b.title}</a>
+                    </c:if>
+                    <c:if test="${sessionScope.userno.user_no != b.user_no}">
+                        ${b.title}
+                    </c:if>
+                </c:if>
+                <c:if test="${b.password_yn != 'y' }">
+                    <a href="../members/BBSServlet?action=selectOne&bbsnum=${b.bbsnum}">${b.title}</a>
+                </c:if>
+            </td>
+            <td width="73">${b.user_no }</td>
+            <td width="164">${b.reg_date}</td>
+            <td width="58">${b.readcount}</td>
+
+        </tr>
+
+    </div>
+
     <script>
         CKEDITOR.replace("contents", {
             filebrowserUploadUrl: '../ckeditor/fileUpload.jsp',
@@ -133,7 +165,7 @@
                     body: frmData
                 })
                 .then(resolve => resolve.json())
-                .then(result => console.log(result))
+                .then(result => show_result(result))
                 .catch(error => console.error(error));
 
             // let xhtp = new XMLHttpRequest();
@@ -143,6 +175,14 @@
             // xhtp.onload = function() {
             // 	console.log(xhtp.responseText)
             // }
+        }
+
+        function show_result(result) {
+            console.log(result);
+            console.log(document.getElementById('reply_list'));
+            var targetBody = document.querySelector('#reply_list>tbody');
+            var newTr = document.createElement('tr');
+
         }
     </script>
 

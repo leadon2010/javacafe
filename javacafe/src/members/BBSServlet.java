@@ -123,6 +123,7 @@ public class BBSServlet extends HttpServlet {
 					// 목록으로 페이지 이동
 					// response.sendRedirect("../members/BBSServlet?action=list&prod_no=" +
 					// bbs.getProd_no());
+					response.setContentType("text/json; charset=UTF-8");
 					Gson gson = new GsonBuilder().create();
 					out.print(gson.toJson(bbs).toString());
 

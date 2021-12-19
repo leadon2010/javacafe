@@ -127,25 +127,49 @@ public class BBSDAO extends DAO {
 
 	// 등록구현
 	public boolean insert(BBS bbs) {
-		System.out.println(bbs);
 		try {
 			connect();
+			String nextSq = "select BOARDS_SEQ.nextval from dual";
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(nextSq);
+			int nextSeq = 0;
+			if (rs.next()) {
+				nextSeq = rs.getInt(1);
+			}
 			String sql = "insert into boards (bbsnum,title,contents,ref,user_no,reg_date,readcount,re_step,password_yn,prod_no)"
-					+ " values(BOARDS_SEQ.nextval,?,?,Boards_seq.currval,?,sysdate,0,0,nvl(?,'N'),?)";
-
-			String bbsnum = bbs.getBbsnum();
+					+ " values(?,?,?,?,?,sysdate,0,0,nvl(?,'N'),?)";
 
 			pstmt = conn.prepareStatement(sql);
-			// pstmt.setString(1, bbs.getBbsnum());
-			pstmt.setString(1, bbs.getTitle());
-			pstmt.setString(2, bbs.getContents());
-			pstmt.setString(3, bbs.getUser_no());
-			pstmt.setString(4, bbs.getPassword_yn());
-			pstmt.setString(5, bbs.getProd_no());
+			pstmt.setInt(1, nextSeq);
+			pstmt.setString(2, bbs.getTitle());
+			pstmt.setString(3, bbs.getContents());
+			pstmt.setInt(4, nextSeq);
+			pstmt.setString(5, bbs.getUser_no());
+			pstmt.setString(6, bbs.getPassword_yn());
+			pstmt.setString(7, bbs.getProd_no());
 
 			int r = pstmt.executeUpdate();
 			System.out.println(r + "건이 업데이트 완료");
 
+			String searchSql = "select * from boards where bbsnum=?";
+			pstmt = conn.prepareStatement(searchSql);
+			pstmt.setInt(1, nextSeq);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				bbs.setBbsnum(rs.getString("bbsnum"));
+				bbs.setTitle(rs.getString("title"));
+				bbs.setContents(rs.getString("contents"));
+				bbs.setRef(rs.getString("ref"));
+				bbs.setRe_step(rs.getString("re_step"));
+				bbs.setReg_date(rs.getDate("reg_date"));
+				bbs.setReadcount(rs.getString("readcount"));
+				bbs.setPassword_yn(rs.getString("password_yn"));
+				bbs.setUser_no(rs.getString("user_no"));
+				bbs.setProd_no(rs.getString("prod_no"));
+
+			}
+
+			System.out.println(bbs);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
