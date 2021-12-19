@@ -45,10 +45,6 @@
 		function dolist(page) {
 			location.href = "../members/BBSServlet?action=list&page=" + page + "&prod_no=" + "${param.prod_no}";
 		}
-
-		function writeFnc(prod_no) {
-			$('#write_reply').load('../members/write.jsp?prod_no=' + prod_no);
-		}
 	</script>
 
 </head>
@@ -79,7 +75,7 @@
 			</tr>
 		</thead>
 
-		<tbody>
+		<tbody id="tbody" data-bbs="${datas}">
 			<c:forEach items="${datas}" var="b">
 				<tr>
 					<td width="73">${b.bbsnum }</td>
@@ -116,7 +112,7 @@
 
 
 	<c:if test="${not empty sessionScope.userno}">
-		<table style="text-align: center;">
+		<table style="display:none; text-align: center;">
 			<tr>
 				<td>
 					<!-- <input type=button value="글쓰기" onclick="writeFnc('${param.prod_no}')"> -->
@@ -130,8 +126,10 @@
 	<myTag:paging paging="${paging}" jsfunc="dolist" />
 
 	<script>
-		console.log('list.jsp => ${param.prod_no}')
-		writeFnc('${param.prod_no}');
+		console.log('list.jsp => ${param.prod_no}');
+		$('#write_reply').load('../members/write.jsp?prod_no=${param.prod_no}');
+		var bbs = document.getElementById('tbody').dataset.bbs;
+		sessionStorage.setItem('bbs', bbs);
 	</script>
 
 </body>

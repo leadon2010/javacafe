@@ -22,7 +22,6 @@
 
 </head>
 
-<jsp:useBean id="datas" class="bbs.BBSDAO" />
 <jsp:useBean id="data" class="bbs.BBS" />
 <jsp:setProperty name="data" property="*" />
 
@@ -39,30 +38,24 @@
         <input type="hidden" name="prod_no" value="${param.prod_no}">
         <table>
             <tr>
-                <td id="title">작성자</td>
+                <td>작성자</td>
                 <td><input name="user_no" type="text" size="70" maxlength="100" value="${sessionScope.userno.user_no}"
                         readonly="readonly" /></td>
             </tr>
             <tr>
-                <td id="title">
-                    제 목
-                </td>
+                <td>제 목</td>
                 <td>
                     <input name="title" type="text" size="70" maxlength="100" value="" />
                 </td>
             </tr>
             <tr>
-                <td id="title">
-                    비 밀 글
-                </td>
+                <td>비 밀 글</td>
                 <td>
                     <input type="checkbox" name="password_yn" value="y" />
                 </td>
             </tr>
             <tr>
-                <td id="title">
-                    내 용
-                </td>
+                <td>내 용</td>
                 <td>
                     <textarea name="contents" cols="72" rows="20"></textarea>
                 </td>
@@ -87,6 +80,8 @@
         </table>
     </form>
     <myTag:paging paging="${paging}" jsfunc="dolist" />
+    <div id="userSession" data-info="${sessionScope.userno}" style="display: none;">${sessionScope.userno}</div>
+    <div id="bbsInfo" data-bbs="${data }" style="display: none;"></div>
     <table style="display: none;">
         <tr id="clone">
             <td width="73"></td>
@@ -161,6 +156,11 @@
             cloneTr.children[4].textContent = obj.readcount;
             targetBody.append(cloneTr);
         }
+        var sessionInfo = document.getElementById('userSession').dataset.info;
+        console.log(sessionInfo);
+        var bbsInfo = document.getElementById('bbsInfo').dataset.bbs;
+        console.log(bbsInfo);
+        
     </script>
 
 </body>
