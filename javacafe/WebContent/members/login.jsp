@@ -27,7 +27,7 @@
 		<article>
 			<div align="center">
 				<h1>Login Page(login)</h1>
-				<form action="memberControl.jsp" method="post">
+				<form action="MemberServlet" method="post">
 					<input type="hidden" name="action" value="login">
 					<table border="1">
 						<tr>

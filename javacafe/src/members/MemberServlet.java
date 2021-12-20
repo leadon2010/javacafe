@@ -132,7 +132,7 @@ public class MemberServlet extends HttpServlet {
 				System.out.println("action===" + action);
 				OrdersDO od = new OrdersDO();
 				OrdersDAO oda = new OrdersDAO();
-				
+
 				od.setUser_no(userno.getUser_no());
 				od.setCart_no(request.getParameterValues("detail_no"));
 
@@ -141,7 +141,7 @@ public class MemberServlet extends HttpServlet {
 				request.setAttribute("c1list", c1list);
 				List<HashMap<String, Object>> c2list = oda.selectOrderListAll(oeh);
 				request.setAttribute("c2list", c2list);
-				
+
 				request.getRequestDispatcher("cartOrders.jsp").forward(request, response);
 
 			} else if (action.equals("orderproc")) {
@@ -216,16 +216,18 @@ public class MemberServlet extends HttpServlet {
 					// response.sendRedirect("memberControl.jsp?action=home&user_no=" +
 					// usrdo.getUser_no());
 					response.sendRedirect("../goods/GoodsServlet?action=goodsList");
+
 				} else {
 					out.print("<script>alert('사용자ID와 비밀번호를 확인하세요.')</script>");
-					response.sendRedirect("main.jsp");
+					response.sendRedirect("../common/main.jsp");
+
 				}
 
 			} else if (action.equals("insert")) { // 회원가입 후 정보확인 및 수정하도록 사용자홈화면으로 간다.
 
 				System.out.println("action===" + action);
 				if (usrdao.insert(usrdo)) {
-					response.sendRedirect("memberControl.jsp?action=home&user_no=" + usrdo.getUser_no());
+					response.sendRedirect("MemberServlet?action=home&user_no=" + usrdo.getUser_no());
 				} else {
 					out.println("login.jsp");
 				}

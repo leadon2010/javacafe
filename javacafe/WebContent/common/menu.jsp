@@ -17,7 +17,7 @@
 		<li><a href="../members/MemberServlet?action=cartlist">장바구니보기</a></li>
 		<li><a href="../members/MemberServlet?action=orderlist">주문내역보기</a></li>
 		<li><a href="../boards/BBSServlet?action=list">상품문의게시판</a></li>
-		<li><a href="../members/MemberServlet.jsp?action=logout">로그아웃</a></li>
+		<li><a href="../members/MemberServlet?action=logout">로그아웃</a></li>
 		<li>&nbsp;</li>
 		<li><a href="../members/MemberServlet?action=mypage">My Page</a></li>
 	</c:if>
