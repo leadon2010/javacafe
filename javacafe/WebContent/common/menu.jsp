@@ -15,18 +15,18 @@
 		<li>${sessionScope.userno.name}(${sessionScope.userno.grade})</li>
 		<li><a href="../goods/GoodsServlet?action=goodsList">홈화면</a></li>
 		<li><a href="../members/MemberServlet?action=cartlist">장바구니보기</a></li>
-		<li><a href="../members/memberControl.jsp?action=orderlist">주문내역보기</a></li>
+		<li><a href="../members/MemberServlet?action=orderlist">주문내역보기</a></li>
 		<li><a href="../boards/BBSServlet?action=list">상품문의게시판</a></li>
-		<li><a href="../members/memberControl.jsp?action=logout">로그아웃</a></li>
+		<li><a href="../members/MemberServlet.jsp?action=logout">로그아웃</a></li>
 		<li>&nbsp;</li>
-		<li><a href="../members/memberControl.jsp?action=mypage">My Page</a></li>
+		<li><a href="../members/MemberServlet?action=mypage">My Page</a></li>
 	</c:if>
 
 	<!-- 관리자메뉴 -->
 	<c:if test="${sessionScope.userno.grade=='R'}">
 		<li>:::회원관리:::</li>
-		<li><a href="../members/memberControl.jsp?action=find">회원조회</a></li>
-		<li><a href="../members/memberControl.jsp?action=select">회원전체리스트</a></li>
+		<li><a href="../members/MemberServlet?action=find">회원조회</a></li>
+		<li><a href="../members/MemberServlet?action=select">회원전체리스트</a></li>
 		<li>&nbsp;</li>
 		<li>:::상품관리:::</li>
 		<li><a href="../goods/goods_form.jsp">상품조회</a></li>

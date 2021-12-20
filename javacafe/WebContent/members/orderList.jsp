@@ -1,16 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
-<%@page import="members.OrdersDO"%>
-<%@page import="java.util.HashMap"%>
-<%@page import="java.util.List"%>
-<%@page import="members.MembersDO"%>
-<%@page import="members.CartsDO"%>
-<%@page import="members.CartDAO"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="goods.GoodsDO"%>
-<%@page import="goods.GoodsDAO"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
@@ -25,11 +14,11 @@
 	<div class="container">
 		<!-- header page -->
 		<header>
-			<%@ include file="../common/header.jsp"%>
+			<jsp:include page="../common/header.jsp"></jsp:include>
 		</header>
 		<!-- menu page -->
 		<nav>
-			<%@ include file="../common/menu.jsp"%>
+			<jsp:include page="../common/menu.jsp"></jsp:include>
 		</nav>
 		<!-- article page -->
 		<article>
@@ -74,7 +63,9 @@
 			</div>
 		</article>
 		<!-- footer page -->
-		<footer><%@ include file="../common/footer.jsp"%></footer>
+		<footer>
+			<jsp:include page="../common/footer.jsp"></jsp:include>
+		</footer>
 	</div>
 </body>
 

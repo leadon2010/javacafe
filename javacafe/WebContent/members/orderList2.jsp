@@ -32,11 +32,11 @@ select category_id, category_name, category_desc from category
 	<div class="container">
 		<!-- header page -->
 		<header>
-			<%@ include file="../common/header.jsp"%>
+			<jsp:include page="../common/header.jsp"></jsp:include>
 		</header>
 		<!-- menu page -->
 		<nav>
-			<%@ include file="../common/menu.jsp"%>
+			<jsp:include page="../common/menu.jsp"></jsp:include>
 		</nav>
 		<!-- article page -->
 		<article>
@@ -55,8 +55,8 @@ select category_id, category_name, category_desc from category
 						<td colspan="3"><textarea cols="100" rows="10">${l.delever_reg}</textarea></td>
 					</tr>
 					<%
-						List<HashMap<String, Object>> c2list = oda.selectAll("");
-						request.setAttribute("c2list", c2list);
+						//List<HashMap<String, Object>> c2list = oda.selectAll("");
+						//request.setAttribute("c2list", c2list);
 					%>
 					<tr>
 						<td colspan="4" align="center">
@@ -85,7 +85,9 @@ select category_id, category_name, category_desc from category
 			</table>
 		</article>
 		<!-- footer page -->
-		<footer><%@ include file="../common/footer.jsp"%></footer>
+		<footer>
+			<jsp:include page="../common/footer.jsp"></jsp:include>
+		</footer>
 	</div>
 </body>
 </html>
