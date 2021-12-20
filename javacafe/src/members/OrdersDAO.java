@@ -129,7 +129,7 @@ public class OrdersDAO extends DAO {
 	}
 
 	// 주문별 상세내역을 보여준다.
-	public List<HashMap<String, Object>> selectAll(String p_order_no) {
+	public List<HashMap<String, Object>> selectOrderListAll(String p_order_no) {
 		connect();
 		List<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
 		try {
@@ -254,12 +254,13 @@ public class OrdersDAO extends DAO {
 				String prodNo = null;
 				Integer salesPrice = null;
 				Integer orderQty = null;
+
 				if (rs.next()) {
 					detailNo = rs.getString("detail_no");
 					prodNo = rs.getString("prod_no");
 					salesPrice = rs.getInt("sales_price");
 					orderQty = rs.getInt("order_qty");
-					// System.out.println(detailNo + " " + prodNo + salesPrice + " "+orderQty);
+
 					String sql = "INSERT INTO oe_details (detail_no, order_no, prod_no, sale_price, order_qty, cart_detailno, flag)"
 							+ " values(ORDERS_SEQ.Nextval ,?,?,?,?,?,'N')";
 					pstmt = conn.prepareStatement(sql);
