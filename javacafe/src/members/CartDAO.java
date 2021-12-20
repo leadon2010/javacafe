@@ -9,17 +9,17 @@ import common.DAO;
 
 public class CartDAO extends DAO {
 
-	public ArrayList<CartsDO> selectAll(String p_user_no) {
+	public ArrayList<CartDO> selectAll(String p_user_no) {
 		connect();
-		ArrayList<CartsDO> clist = new ArrayList<CartsDO>();
-		CartsDO cdo = null;
+		ArrayList<CartDO> clist = new ArrayList<CartDO>();
+		CartDO cdo = null;
 		try {
-			String sql = "select user_no, detail_no, prod_no, sales_price, order_qty, get_prod_name(prod_no) p_name from cart_details where user_no = ? order by prod_no";
+			String sql = "select user_no, detail_no, prod_no, sales_price, order_qty, get_prod_name(prod_no) p_name from cart where user_no = ? order by prod_no";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, p_user_no);
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
-				cdo = new CartsDO();
+				cdo = new CartDO();
 				cdo.setUser_no(rs.getString("user_no"));
 				cdo.setDetail_no(rs.getString("detail_no"));
 				cdo.setProd_no(rs.getString("prod_no"));
@@ -37,7 +37,7 @@ public class CartDAO extends DAO {
 	}// end of selectAll
 
 	// public HashMap<String, Object> insertProc(CartsDO bean) throws Exception {
-	public boolean insertProc(CartsDO bean) throws Exception {
+	public boolean insertProc(CartDO bean) throws Exception {
 		CallableStatement cstmt = null;
 		// int nextId = 0;
 		try {

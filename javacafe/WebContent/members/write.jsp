@@ -80,7 +80,8 @@
         </table>
     </form>
     <myTag:paging paging="${paging}" jsfunc="dolist" />
-    <div id="userSession" data-info="${sessionScope.userno}" style="display: none;">${sessionScope.userno}</div>
+    <div id="userSession" data-info="${sessionScope.userno.user_no}" style="display: none;">
+        ${sessionScope.userno.user_no}</div>
     <div id="bbsInfo" data-bbs="${data }" style="display: none;"></div>
     <table style="display: none;">
         <tr id="clone">
@@ -148,9 +149,17 @@
 
             var cloneTr = document.getElementById('clone').cloneNode(true);
 
-            console.log(cloneTr)
             cloneTr.children[0].textContent = obj.bbsnum;
-            cloneTr.children[1].textContent = obj.title;
+            if (obj.password_yn == 'y') {
+                var img = '<img src="../boards/자물쇠.JPG"> ';
+                if (document.getElementById('userSession').dataset.info == obj.user_no) {
+                    var aTag = '<a href="../members/BBSServlet?action=selectOne&bbsnum=' + obj.bbsnum + '">' + obj
+                        .title + '</a>';
+                    cloneTr.children[1].innerHTML = img + aTag;
+                } else {
+                    cloneTr.children[1].innerHTML = img + `<p>${obj.title}`;
+                }
+            }
             cloneTr.children[2].textContent = obj.user_no;
             cloneTr.children[3].textContent = obj.reg_date;
             cloneTr.children[4].textContent = obj.readcount;
@@ -160,7 +169,6 @@
         console.log(sessionInfo);
         var bbsInfo = document.getElementById('bbsInfo').dataset.bbs;
         console.log(bbsInfo);
-        
     </script>
 
 </body>

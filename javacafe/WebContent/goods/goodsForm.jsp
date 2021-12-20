@@ -78,8 +78,7 @@
 							<td>상품명 : ${goods.prod_name}</td>
 						</tr>
 						<tr>
-							<td>판매가 : <input width="50" type="text" readonly="readonly" name="sales_price"
-									value="${goods.prod_price}" /></td>
+							<td>판매가 : <input width="50" type="text" readonly="readonly" name="sales_price" value="${goods.prod_price}" /></td>
 						</tr>
 						<tr>
 							<td>할인금액 : ${goods.off_price}</td>

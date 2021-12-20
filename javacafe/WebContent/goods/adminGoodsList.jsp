@@ -47,6 +47,26 @@
 		ul.menu li {
 			float: left;
 		}
+
+		.prod_code {
+			display: inline-block;
+			width: 25%;
+		}
+
+		.prod_name {
+			display: inline-block;
+			width: 20%;
+		}
+
+		.prod_onhand {
+			display: inline-block;
+			width: 15%;
+		}
+
+		.prod_price {
+			display: inline-block;
+			width: 15%;
+		}
 	</style>
 </head>
 
@@ -97,14 +117,22 @@
 						</c:forEach>
 					</ul>
 				</div>
+				<div style="border: 1px solid green;">
+					<span class='prod_code'>상품코드</span>
+					<span class='prod_name'>상품명</span>
+					<!-- <span>${goods.prod_content}</span>    -->
+					<span class='prod_onhand'>재고</span>
+					<span class='prod_price'>상품가격</span>
+				</div>
 				<c:forEach items="${datas}" var="goods">
-					<div onclick="location.href='../goods/GoodsServlet?action=adminGoodsForm&prod_no=${goods.prod_no}'"
-						style="cursor: pointer">
-						<span>${goods.prod_no} <img src="../upload/${goods.prod_image}" width="250" height="250"></span>
-						<span>${goods.prod_name} </span>
+					<div style="cursor: pointer; border: 1px solid green;"
+						onclick="location.href='../goods/GoodsServlet?action=adminGoodsForm&prod_no=${goods.prod_no}'">
+						<span class='prod_code'>${goods.prod_no} <img src="../upload/${goods.prod_image}"
+								width="100"></span>
+						<span class='prod_name'>${goods.prod_name} </span>
 						<!-- <span>${goods.prod_content}</span>    -->
-						<span>${goods.onhand_qty} </span>
-						<span>${goods.prod_price}</span>
+						<span class='prod_onhand'>${goods.onhand_qty} </span>
+						<span class='prod_price'>${goods.prod_price}</span>
 					</div>
 				</c:forEach>
 			</div>
