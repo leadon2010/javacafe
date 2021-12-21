@@ -208,6 +208,8 @@ public class MemberServlet extends HttpServlet {
 				// 로그인 실패일 경우 메세지를 보여주고 로그인화면을 다시 열어준다.
 				System.out.println("action===" + action);
 				MembersDO data = null;
+				usrdo.setUser_no(request.getParameter("user_no"));
+				usrdo.setPassword(request.getParameter("password"));
 				data = usrdao.login(usrdo.getUser_no(), usrdo.getPassword());
 				if (data != null) {
 					// session setting
