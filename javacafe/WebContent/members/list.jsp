@@ -40,6 +40,7 @@
 		}
 	</style>
 
+	<script src="../js/jquery-3.5.1.min.js"></script>
 	<script>
 		function dolist(page) {
 			location.href = "../members/BBSServlet?action=list&page=" + page + "&prod_no=" + "${param.prod_no}";
@@ -57,68 +58,79 @@
 	<br>
 
 
-	<table width="100%" cellpadding="0" cellspacing="0" border="0" class="bbs-table">
+	<table id="reply_list" width="100%" cellpadding="0" cellspacing="0" border="0" class="bbs-table">
 
-		<tr>
-			<th style="width: 60px;">번호</th>
-			<th>제목</th>
-			<th>작성자</th>
-			<th style="width: 84px;">작성일</th>
-			<th style="width: 60px;">조회수</th>
+		<thead>
+			<tr>
+				<th style="width: 60px;">번호</th>
+				<th>제목</th>
+				<th>작성자</th>
+				<th style="width: 84px;">작성일</th>
+				<th style="width: 60px;">조회수</th>
 
-			<!-- <th style="width: 60px;">NO</th>
+				<!-- <th style="width: 60px;">NO</th>
     				<th>TITLE</th>
     				<th style="width: 84px;">DATE</th>
     				<th style="width: 60px;">HIT</th>	 -->
-		</tr>
+			</tr>
+		</thead>
 
-
-		<c:forEach items="${datas}" var="b">
-
-			<tr>
-				<td width="73">${b.bbsnum }</td>
-				<td align="left">
-					<c:if test="${b.ref_lev > 0}">
-						<c:forEach begin="1" end="${b.ref_lev}">
-							&nbsp;&nbsp;
-							<!-- 답변글일경우 글 제목 앞에 공백을 준다. -->
-						</c:forEach>
-						RE :
-					</c:if>
-
-
-					<c:if test="${b.password_yn == 'y'}">
-						<img src="../boards/자물쇠.JPG">
-						<c:if test="${sessionScope.userno.user_no == b.user_no}">
+		<tbody id="tbody" data-bbs="${datas}">
+			<c:forEach items="${datas}" var="b">
+				<tr>
+					<td width="73">${b.bbsnum }</td>
+					<td align="left">
+						<c:if test="${b.ref_lev > 0}">
+							<c:forEach begin="1" end="${b.ref_lev}">
+								&nbsp;&nbsp;
+								<!-- 답변글일경우 글 제목 앞에 공백을 준다. -->
+							</c:forEach>
+							RE :
+						</c:if>
+						<c:if test="${b.password_yn == 'y'}">
+							<img src="../boards/자물쇠.JPG">
+							<c:if test="${sessionScope.userno.user_no == b.user_no}">
+								<a href="../members/BBSServlet?action=selectOne&bbsnum=${b.bbsnum}">${b.title}</a>
+							</c:if>
+							<c:if test="${sessionScope.userno.user_no != b.user_no}">
+								${b.title}
+							</c:if>
+						</c:if>
+						<c:if test="${b.password_yn != 'y' }">
 							<a href="../members/BBSServlet?action=selectOne&bbsnum=${b.bbsnum}">${b.title}</a>
 						</c:if>
-						<c:if test="${sessionScope.userno.user_no != b.user_no}">
-							${b.title}
-						</c:if>
-					</c:if>
-					<c:if test="${b.password_yn != 'y' }">
-						<a href="../members/BBSServlet?action=selectOne&bbsnum=${b.bbsnum}">${b.title}</a>
-					</c:if>
-				</td>
-				<td width="73">${b.user_no }</td>
-				<td width="164">${b.reg_date}</td>
-				<td width="58">${b.readcount}</td>
+					</td>
+					<td width="73">${b.user_no }</td>
+					<td width="164">${b.reg_date}</td>
+					<td width="58">${b.readcount}</td>
 
-			</tr>
-
-
-		</c:forEach>
+				</tr>
+			</c:forEach>
+		</tbody>
 
 	</table>
+
+
 	<c:if test="${not empty sessionScope.userno}">
-		<table align="center">
+		<table style="display:none; text-align: center;">
 			<tr>
-				<td><input type=button value="글쓰기" onclick="window.location='../members/write.jsp?prod_no=${param.prod_no}'">
+				<td>
+					<!-- <input type=button value="글쓰기" onclick="writeFnc('${param.prod_no}')"> -->
+					<!-- onclick="window.location='../members/write.jsp?prod_no=${param.prod_no}'" -->
 				</td>
 			</tr>
 		</table>
+		<div id='write_reply'></div>
 	</c:if>
+
 	<myTag:paging paging="${paging}" jsfunc="dolist" />
+
+	<script>
+		console.log('list.jsp => ${param.prod_no}');
+		$('#write_reply').load('../members/write.jsp?prod_no=${param.prod_no}');
+		var bbs = document.getElementById('tbody').dataset.bbs;
+		sessionStorage.setItem('bbs', bbs);
+	</script>
 
 </body>
 

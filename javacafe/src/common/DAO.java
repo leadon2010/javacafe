@@ -27,13 +27,13 @@ public class DAO {
 	final static String DB_PASSWORD = "H1q2w3e4r5tR";
 
 	public void connect() {
-		int choi = 3;
+		int choi = 1;
 		try {
 			if (choi == 1) {
 				Class.forName("oracle.jdbc.driver.OracleDriver");
 				String url = "jdbc:oracle:thin:@localhost:1521:xe";
 
-				conn = DriverManager.getConnection(url, "c##javacafe", "javacafe");
+				conn = DriverManager.getConnection(url, DB_USER, DB_PASSWORD);
 				// System.out.println(conn == null ? "connection error!!" : "success!!");
 
 			} else if (choi == 2) {

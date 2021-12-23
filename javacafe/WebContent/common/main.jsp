@@ -14,12 +14,12 @@
 
 		<!-- header page -->
 		<header>
-			<%@ include file="../common/header.jsp"%>
+			<jsp:include page="../common/header.jsp"></jsp:include>
 		</header>
 
 		<!-- menu page -->
 		<nav>
-			<%@ include file="../common/menu.jsp"%>
+			<jsp:include page="../common/menu.jsp"></jsp:include>
 		</nav>
 
 		<!-- article page -->
@@ -27,7 +27,9 @@
 		</article>
 
 		<!-- footer page -->
-		<footer><%@ include file="../common/footer.jsp"%></footer>
+		<footer>
+			<jsp:include page="../common/footer.jsp"></jsp:include>
+		</footer>
 
 	</div>
 	<script>

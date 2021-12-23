@@ -19,16 +19,18 @@
 	<script src="../ckeditor/ckeditor.js"></script>
 	<script>
 		window.onload = function () {
+			console.log('window onload');
 			CKEDITOR.replace("prod_content", {
 				filebrowserUploadUrl: '../ckeditor/fileUpload.jsp',
 				customConfig: '../ckeditor/config.js'
 			});
+
 		}
 
 		function return_check() {
 			// document.getElementById("contents").value;
 			var data = CKEDITOR.instances.contents.getData();
-			//console(data);
+			console(data);
 			if (data == '') {
 				alert("input editor..");
 				return false;
@@ -37,7 +39,8 @@
 		}
 
 		function file_open() {
-			window.open("upload.jsp", "upload", "width=300 height=200 left=300 top=30");
+			window.open("upload.jsp", "upload",
+				"width=300 height=200 left=300 top=30");
 		}
 
 		function orders() {
@@ -51,12 +54,14 @@
 	<div class="container">
 		<!-- header page -->
 		<header>
-			<%@ include file="../common/header.jsp"%>
+			<jsp:include page="../common/header.jsp"></jsp:include>
 		</header>
+
 		<!-- menu page -->
 		<nav>
-			<%@ include file="../common/menu.jsp"%>
+			<jsp:include page="../common/menu.jsp"></jsp:include>
 		</nav>
+
 		<!-- article page -->
 		<article>
 			<div align="center">
@@ -73,8 +78,7 @@
 							<td>상품명 : ${goods.prod_name}</td>
 						</tr>
 						<tr>
-							<td>판매가 : <input width="50" type="text" readonly="readonly" name="sales_price"
-									value="${goods.prod_price}" /></td>
+							<td>판매가 : <input width="50" type="text" readonly="readonly" name="sales_price" value="${goods.prod_price}" /></td>
 						</tr>
 						<tr>
 							<td>할인금액 : ${goods.off_price}</td>
@@ -98,7 +102,7 @@
 							<td><button type="button" onclick="orders()">주문하기</button></td>
 						</tr>
 						<tr>
-							<td colspan="2"><span>${goods.prod_content}</span></td>
+							<td colspan="2"><textarea name='prod_content'>${goods.prod_content}</textarea></td>
 						</tr>
 						<!-- 주문페이지로 이동 -->
 					</table>
@@ -107,19 +111,20 @@
 					src="../members/BBSServlet?action=list&prod_no=${goods.prod_no}" marginwidth="0" marginheight="0"
 					onload="resizeIframe(this)"></iframe>
 				</iframe> -->
-				<div id="reply">
-				</div>
+				
+				<div id="reply"></div>
 			</div>
 		</article>
 
 		<!-- footer page -->
 		<footer>
-			<%@ include file="../common/footer.jsp"%>
+			<jsp:include page="../common/footer.jsp"></jsp:include>
 		</footer>
 
 	</div>
 	<script>
-		$("#reply").load("../members/BBSServlet?action=list&prod_no=${goods.prod_no}");
+		$("#reply").load(
+			"../members/BBSServlet?action=list&prod_no=${goods.prod_no}");
 	</script>
 </body>
 

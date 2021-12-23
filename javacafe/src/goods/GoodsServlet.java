@@ -6,7 +6,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -146,7 +145,7 @@ public class GoodsServlet extends HttpServlet {
 		} else if (action.equals("adminGoodsRegister")) {
 			goodsDAO.insert(goodsDO);
 			
-			response.sendRedirect("GoodsServlet?action=goodsList");
+			response.sendRedirect("GoodsServlet?action=adminGoodsList");
 
 		} else if (action.equals("adminGoodsCorrectForm")) {
 			GoodsDO gds = goodsDAO.selectOne(goodsDO.getProd_no());
@@ -161,6 +160,8 @@ public class GoodsServlet extends HttpServlet {
 
 		} else if (action.equals("adminGoodsDelete")) {
 
+		} else if(action.equals("cart2orderUser")) {
+			System.out.println("cart2orderUser action");
 		} else {
 			out.println("없는 action 입니다.");
 		}

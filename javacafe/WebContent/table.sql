@@ -41,4 +41,4 @@ CREATE TABLE boards(bbsnum VARCHAR2(50)
                    ,password_yn VARCHAR2(10)
                    ,ref_lev VARCHAR2(10)
                    ,user_no VARCHAR2(50)
-                   ,prod_no NUMBER);
+                   ,prod_no VARCHAR2(10));

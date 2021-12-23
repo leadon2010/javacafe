@@ -15,19 +15,19 @@
 
 		<!-- header page -->
 		<header>
-			<%@ include file="../common/header.jsp"%>
+			<jsp:include page="../common/header.jsp"></jsp:include>
 		</header>
 
 		<!-- menu page -->
 		<nav>
-			<%@ include file="../common/menu.jsp"%>
+			<jsp:include page="../common/menu.jsp"></jsp:include>
 		</nav>
 
 		<!-- article page -->
 		<article>
 			<div align="center">
 				<h1>Login Page(login)</h1>
-				<form action="memberControl.jsp" method="post">
+				<form action="MemberServlet" method="post">
 					<input type="hidden" name="action" value="login">
 					<table border="1">
 						<tr>
@@ -48,7 +48,9 @@
 		</article>
 
 		<!-- footer page -->
-		<footer><%@ include file="../common/footer.jsp"%></footer>
+		<footer>
+			<jsp:include page="../common/footer.jsp"></jsp:include>
+		</footer>
 
 	</div>
 

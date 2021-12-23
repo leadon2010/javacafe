@@ -1,21 +1,17 @@
-<%@page import="members.MembersDO"%>
-<%@page import="members.CartsDO"%>
-<%@page import="members.CartDAO"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="goods.GoodsDO"%>
-<%@page import="goods.GoodsDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>cart list</title>
-<link rel="stylesheet" href="../common/members.css" type="text/css"
-	media="screen" />
+	<title>cart list</title>
+	<link rel="stylesheet" href="../common/members.css" type="text/css" media="screen" />
 </head>
 <%
+
 %>
+
 <body>
 	<div class="container">
 		<!-- header page -->
@@ -30,7 +26,7 @@
 		<article>
 			<div align="center">
 				<h3>장바구니(cartList)</h3>
-				<form action="memberControl.jsp" method="post">
+				<form action="MemberServlet" method="post">
 					<input type="hidden" name="action" value="cart2order">
 					<table border="1">
 						<tr>
@@ -46,17 +42,13 @@
 						</tr>
 						<c:forEach items="${clist}" var="i" varStatus="st">
 							<tr>
-								<td align="center"><input type="checkbox" name="detail_no"
-									value="${i.detail_no}" checked /></td>
+								<td align="center">
+								<input type="checkbox" name="detail_no" value="${i.detail_no}" checked /></td>
 								<td><input type="text" name="prod_no" value="${i.prod_no}" /></td>
-								<td><input type="text" name="prod_name"
-									value="${i.prod_name }" /></td>
-								<td><input type="text" name="sales_price"
-									value="${i.sales_price}" /></td>
-								<td><input type="text" name="order_qty"
-									value="${i.order_qty}" /></td>
-								<td><input type="text" name="total_amt"
-									value="${i.order_qty * i.sales_price}" /></td>
+								<td><input type="text" name="prod_name" value="${i.prod_name }" /></td>
+								<td><input type="text" name="sales_price" value="${i.sales_price}" /></td>
+								<td><input type="text" name="order_qty" value="${i.order_qty}" /></td>
+								<td><input type="text" name="total_amt" value="${i.order_qty * i.sales_price}" /></td>
 							</tr>
 						</c:forEach>
 					</table>
@@ -66,9 +58,12 @@
 		</article>
 
 		<!-- footer page -->
-		<footer><%@ include file="../common/footer.jsp"%></footer>
+		<footer>
+			<%@ include file="../common/footer.jsp"%>
+		</footer>
 
 	</div>
 
 </body>
+
 </html>

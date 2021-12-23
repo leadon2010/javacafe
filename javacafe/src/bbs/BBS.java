@@ -15,7 +15,6 @@ public class BBS {
 	private String ref_lev; // 부모게시글에 대한 댓글 그룹번호
 	private String user_no; // 회원정보
 	private String prod_no; // 상품가격
-	
 
 	// 생성자 (필수입력 )
 	public BBS(String bbsnum, String title, String contents, String ref, String re_step, Date reg_date,
@@ -35,7 +34,6 @@ public class BBS {
 	}
 
 	public BBS() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public String getBbsnum() {
@@ -116,9 +114,8 @@ public class BBS {
 
 	public void setUser_no(String user_no) {
 		this.user_no = user_no;
-	}	
-	
-	
+	}
+
 	public String getProd_no() {
 		return prod_no;
 	}

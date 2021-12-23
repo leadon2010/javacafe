@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.beanutils.BeanUtils;
 
-@WebServlet("/members/MemberServlet")
+@WebServlet("/members/MemberServlet.do")
 public class MemberServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
