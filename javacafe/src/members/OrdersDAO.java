@@ -128,6 +128,10 @@ public class OrdersDAO extends DAO {
 		return olist;
 	}
 
+	public List<HashMap<String, Object>> selectAll(String id) {
+		return null;
+	}
+
 	// 주문별 상세내역을 보여준다.
 	public List<HashMap<String, Object>> selectOrderListAll(String p_order_no) {
 		connect();
