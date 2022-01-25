@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <%@page import="goods.GoodsDO"%>
 <%@page import="members.OrderSets"%>
 <%@page import="java.util.HashMap"%>
@@ -10,10 +11,10 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="members.MembersDO"%>
 <%
-	// jsp 에서 서블릿으로 변경함.
-	// 소스를 남겨둔건 <jsp:useBean>예제로 남겨둠. 2021.12.20.
-	// MemberServlet 으로 이동.
-	request.setCharacterEncoding("utf-8");
+// jsp 에서 서블릿으로 변경함.
+// 소스를 남겨둔건 <jsp:useBean>예제로 남겨둠. 2021.12.20.
+// MemberServlet 으로 이동.
+request.setCharacterEncoding("utf-8");
 %>
 <jsp:useBean id="crtdo" class="members.CartDO" />
 <jsp:useBean id="crtdao" class="members.CartDAO" />
@@ -57,13 +58,13 @@ if (userno == null && action != null && !action.equals("login") && !action.equal
 		//상품을 장바구니에 담으면 장바구니 조회화면으로 간다.
 		System.out.println("action===" + action);
 		if (crtdao.insertProc(crtdo)) {
-			ArrayList<CartDO> clist = crtdao.selectAll(crtdo.getUser_no());
-			request.setAttribute("clist", clist);
-			pageContext.forward("cartList.jsp");
+	ArrayList<CartDO> clist = crtdao.selectAll(crtdo.getUser_no());
+	request.setAttribute("clist", clist);
+	pageContext.forward("cartList.jsp");
 		} else {
-			out.println("cart error action.");
+	out.println("cart error action.");
 		}
-		
+
 	} else if (action.equals("cartlistUser")) {
 		System.out.println("action===" + action);
 		ArrayList<CartDO> clist = crtdao.selectAll(usrdo.getUser_no());
@@ -118,10 +119,10 @@ if (userno == null && action != null && !action.equals("login") && !action.equal
 		String ret = orsdao.orderComplete(orsdo);
 		out.print("orderProc" + ret);
 		if (ret.equals("success")) {
-			out.println("<script>alert('정상적으로 처리되었습니다')</script>");
-			response.sendRedirect("../goods/GoodsServlet?action=goodsList");
+	out.println("<script>alert('정상적으로 처리되었습니다')</script>");
+	response.sendRedirect("../goods/GoodsServlet?action=goodsList");
 		} else {
-			out.println("<script>alert('no정상적으로 처리되었습니다')</script>");
+	out.println("<script>alert('no정상적으로 처리되었습니다')</script>");
 		}
 
 	} else if (action.equals("orderlistUser")) {
@@ -151,20 +152,20 @@ if (userno == null && action != null && !action.equals("login") && !action.equal
 		System.out.println("action===" + action);
 		MembersDO newusr = usrdao.selectOne(usrdo.getUser_no());
 		if (newusr.getUser_no() != null) {
-			request.setAttribute("usrdo", newusr);
-			pageContext.forward("home.jsp");
+	request.setAttribute("usrdo", newusr);
+	pageContext.forward("home.jsp");
 		} else {
-			response.sendRedirect("home.jsp");
+	response.sendRedirect("home.jsp");
 		}
 
 	} else if (action.equals("mypage")) {
 		System.out.println("action===" + action);
 		MembersDO newusr = usrdao.selectOne(userno.getUser_no());
 		if (newusr.getUser_no() != null) {
-			request.setAttribute("usrdo", newusr);
-			pageContext.forward("home.jsp");
+	request.setAttribute("usrdo", newusr);
+	pageContext.forward("home.jsp");
 		} else {
-			response.sendRedirect("home.jsp");
+	response.sendRedirect("home.jsp");
 		}
 
 	} else if (action.equals("login")) {
@@ -174,33 +175,33 @@ if (userno == null && action != null && !action.equals("login") && !action.equal
 		MembersDO data = null;
 		data = usrdao.login(usrdo.getUser_no(), usrdo.getPassword());
 		if (data != null) {
-			//session setting
-			session.setAttribute("userno", data);
-			//MembersDO abc = (MembersDO) session.getAttribute("userno");
-			//response.sendRedirect("memberControl.jsp?action=home&user_no=" + usrdo.getUser_no());
-			response.sendRedirect("../goods/GoodsServlet?action=goodsList");
+	//session setting
+	session.setAttribute("userno", data);
+	//MembersDO abc = (MembersDO) session.getAttribute("userno");
+	//response.sendRedirect("memberControl.jsp?action=home&user_no=" + usrdo.getUser_no());
+	response.sendRedirect("../goods/GoodsServlet?action=goodsList");
 		} else {
-			out.print("<script>alert('사용자ID와 비밀번호를 확인하세요.')</script>");
-			response.sendRedirect("main.jsp");
+	out.print("<script>alert('사용자ID와 비밀번호를 확인하세요.')</script>");
+	response.sendRedirect("main.jsp");
 		}
 
 	} else if (action.equals("insert")) {
 		//회원가입 후 정보확인 및 수정하도록 사용자홈화면으로 간다.
 		System.out.println("action===" + action);
 		if (usrdao.insert(usrdo)) {
-			response.sendRedirect("memberControl.jsp?action=home&user_no=" + usrdo.getUser_no());
+	response.sendRedirect("memberControl.jsp?action=home&user_no=" + usrdo.getUser_no());
 		} else {
-			out.println("login.jsp");
+	out.println("login.jsp");
 		}
 
 	} else if (action.equals("updateGoods")) {
 		System.out.println("action===" + action);
 		if (gdsdao.update(gdsdo)) {
-			request.setAttribute("datas", gdsdao.selectAll(""));
-			pageContext.forward("../goods/adminGoodsList.jsp");
+	request.setAttribute("datas", gdsdao.selectAll(""));
+	pageContext.forward("../goods/adminGoodsList.jsp");
 
 		} else {
-			System.out.println("error");
+	System.out.println("error");
 		}
 
 	} else if (action.equals("select")) {
@@ -212,10 +213,10 @@ if (userno == null && action != null && !action.equals("login") && !action.equal
 	} else if (action.equals("updateUserInfo")) {
 		System.out.println("action===" + action);
 		if (usrdao.update(usrdo)) {
-			response.sendRedirect("memberControl.jsp?action=home&user_no=" + usrdo.getUser_no());
+	response.sendRedirect("memberControl.jsp?action=home&user_no=" + usrdo.getUser_no());
 
 		} else {
-			out.println("<script>alert('회원정보변경에러')</script>");
+	out.println("<script>alert('회원정보변경에러')</script>");
 
 		}
 
