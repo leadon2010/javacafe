@@ -16,19 +16,22 @@
 			<version>19.3.0.0</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils -->
+		<!--
+		https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils -->
 		<dependency>
 			<groupId>commons-beanutils</groupId>
 			<artifactId>commons-beanutils</artifactId>
 			<version>1.9.4</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
+		<!--
+		https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
 		<dependency>
 			<groupId>commons-fileupload</groupId>
 			<artifactId>commons-fileupload</artifactId>
-			<version>1.4</version>
+			<version>1.5</version>
 		</dependency>
+
 
 		<!-- https://mvnrepository.com/artifact/servlets.com/cos -->
 		<dependency>
@@ -80,15 +83,12 @@
 			<version>1.0.6</version>
 		</dependency>
 
-<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
-<dependency>
-    <groupId>com.google.code.gson</groupId>
-    <artifactId>gson</artifactId>
-    <version>2.8.9</version>
-</dependency>
-
-
-
+		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.8.9</version>
+		</dependency>
 
 
 	</dependencies>
