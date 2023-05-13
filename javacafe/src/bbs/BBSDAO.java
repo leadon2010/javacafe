@@ -1,18 +1,10 @@
 package bbs;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.security.auth.message.callback.PrivateKeyCallback.Request;
-
-//import com.sun.corba.se.spi.orbutil.fsm.Guard.Result;
-
 import common.DAO;
-import bbs.BBSDAO;
 
 public class BBSDAO extends DAO {
 
@@ -84,7 +76,6 @@ public class BBSDAO extends DAO {
 	}
 
 	// 한 페이지 데이터 조회
-
 	public List<BBS> selectPage(int start, int end, String prod_no) {
 		ArrayList<BBS> list = new ArrayList<BBS>();
 		BBS bbs = null;

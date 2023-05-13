@@ -2,9 +2,11 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>boardSelect</title>
+	<title>boardSelect</title>
 </head>
+
 <body>
 	<h3>상세보기</h3>
 	제목:<%=request.getParameter("title")%><br>
@@ -13,4 +15,5 @@
 	<a href="BoardFileDownload?filename=<%=request.getParameter("attach1")%>"><%=request.getParameter("attach1")%></a>
 	<br>
 </body>
+
 </html>

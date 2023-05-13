@@ -46,6 +46,7 @@ public class BoardFileUpload extends HttpServlet {
 			System.out.println("parameter name: " + part.getName());
 			part.write(filepath + "/" + part.getSubmittedFileName()); // 경로/파일명
 		}
+
 		PrintWriter out = response.getWriter();
 		out.println("<script>");
 		out.println("opener.frm1.prod_image.value= '" + filename + "';");

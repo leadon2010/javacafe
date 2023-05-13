@@ -28,6 +28,7 @@ public class FileDownloadHelper {
 				try {
 					is.close();
 				} catch (IOException e) {
+
 				}
 		}
 	}
